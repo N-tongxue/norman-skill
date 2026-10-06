@@ -1,0 +1,227 @@
+{
+  "name": "norman-fig2ppt",
+  "version": "1.2.0-unified",
+  "packaging_date": "2026-10-06",
+  "platforms": [
+    "Windows x64",
+    "macOS arm64",
+    "macOS x86_64"
+  ],
+  "python_installation_required": false,
+  "download_at_first_run": false,
+  "windows_engine": "Existing Nuitka 1.0.0 native runtime",
+  "macos_engine": "CPython 3.12.15 bundled interpreter + compiled author bytecode 1.1.0 + vendored native wheels",
+  "macos_dependency_minimum_version": "14.0",
+  "macos": {
+    "arm64": {
+      "python_source": {
+        "name": "cpython-3.12.15+20261003-aarch64-apple-darwin-install_only.tar.gz",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261003/cpython-3.12.15%2B20261003-aarch64-apple-darwin-install_only.tar.gz",
+        "sha256": "316a463172740e71d8dca1f2730784e325f3f720941137b5d674d5801a632213",
+        "size": 25146462
+      },
+      "wheels": [
+        "annotated_types-0.8.0-py3-none-any.whl",
+        "imageio-2.38.0-py3-none-any.whl",
+        "lazy_loader-0.4-py3-none-any.whl",
+        "lxml-6.1.3-cp312-cp312-macosx_10_13_universal2.whl",
+        "networkx-3.7-py3-none-any.whl",
+        "numpy-2.5.3-cp312-cp312-macosx_14_0_arm64.whl",
+        "packaging-26.3-py3-none-any.whl",
+        "pillow-12.3.0-cp312-cp312-macosx_11_0_arm64.whl",
+        "pydantic-2.13.5-py3-none-any.whl",
+        "pydantic_core-2.46.5-cp312-cp312-macosx_11_0_arm64.whl",
+        "python_pptx-1.0.2-py3-none-any.whl",
+        "scikit_image-0.26.0-cp312-cp312-macosx_11_0_arm64.whl",
+        "scipy-1.18.1-cp312-cp312-macosx_14_0_arm64.whl",
+        "tifffile-2026.9.20-py3-none-any.whl",
+        "typing_extensions-4.16.0-py3-none-any.whl",
+        "typing_inspection-0.4.4-py3-none-any.whl",
+        "xlsxwriter-3.2.9-py3-none-any.whl"
+      ],
+      "native_binaries": 227,
+      "library_dependency_paths": "all referenced nonsystem libraries present",
+      "architecture": "arm64",
+      "runtime_executed": false
+    },
+    "x86_64": {
+      "python_source": {
+        "name": "cpython-3.12.15+20261003-x86_64-apple-darwin-install_only.tar.gz",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261003/cpython-3.12.15%2B20261003-x86_64-apple-darwin-install_only.tar.gz",
+        "sha256": "a8fd7a91852f19b6d959793ef41fad048631ccb2a334a9ecdf573255298f7978",
+        "size": 24850741
+      },
+      "wheels": [
+        "annotated_types-0.8.0-py3-none-any.whl",
+        "imageio-2.38.0-py3-none-any.whl",
+        "lazy_loader-0.4-py3-none-any.whl",
+        "lxml-6.1.3-cp312-cp312-macosx_10_13_x86_64.whl",
+        "networkx-3.7-py3-none-any.whl",
+        "numpy-2.5.3-cp312-cp312-macosx_14_0_x86_64.whl",
+        "packaging-26.3-py3-none-any.whl",
+        "pillow-12.3.0-cp312-cp312-macosx_10_13_x86_64.whl",
+        "pydantic-2.13.5-py3-none-any.whl",
+        "pydantic_core-2.46.5-cp312-cp312-macosx_10_12_x86_64.whl",
+        "python_pptx-1.0.2-py3-none-any.whl",
+        "scikit_image-0.26.0-cp312-cp312-macosx_10_13_x86_64.whl",
+        "scipy-1.18.1-cp312-cp312-macosx_14_0_x86_64.whl",
+        "tifffile-2026.9.20-py3-none-any.whl",
+        "typing_extensions-4.16.0-py3-none-any.whl",
+        "typing_inspection-0.4.4-py3-none-any.whl",
+        "xlsxwriter-3.2.9-py3-none-any.whl"
+      ],
+      "native_binaries": 227,
+      "library_dependency_paths": "all referenced nonsystem libraries present",
+      "architecture": "x86_64",
+      "runtime_executed": false
+    }
+  },
+  "macos_runtime_verified": false,
+  "macos_powerpoint_verified": false,
+  "apple_notarized": false,
+  "author_source_shipped": false,
+  "bytecode_can_be_decompiled": true,
+  "macos_author_archive_sha256": "10aa01fadfd130d4f7025e357dd4e89f484dfc66c1ce693a94a5a53921e41f8b",
+  "wheel_sources": [
+    {
+      "filename": "annotated_types-0.8.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl",
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+    },
+    {
+      "filename": "imageio-2.38.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/ba/4b/87a794e51d150f62a55715c453c9afbf6103fe24afef6db26a929a8480b7/imageio-2.38.0-py3-none-any.whl",
+      "sha256": "474ea3a39e36e0e8e02d81d7f10412aaecec7a2825e5fbc4f44cbcd7bb7cebfc"
+    },
+    {
+      "filename": "lazy_loader-0.4-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/83/60/d497a310bde3f01cb805196ac61b7ad6dc5dcf8dce66634dc34364b20b4f/lazy_loader-0.4-py3-none-any.whl",
+      "sha256": "342aa8e14d543a154047afb4ba8ef17f5563baad3fc610d7b15b213b0f119efc"
+    },
+    {
+      "filename": "lxml-6.1.3-cp312-cp312-macosx_10_13_universal2.whl",
+      "url": "https://files.pythonhosted.org/packages/dd/1f/a180b57d9eeabaab77f9d5aa30356898ea749c4795596a8f66d1eb6bef2e/lxml-6.1.3-cp312-cp312-macosx_10_13_universal2.whl",
+      "sha256": "0c0710ac085a157b593c38fbcacd950f15c4afa8e2057527185875ab302752bc"
+    },
+    {
+      "filename": "networkx-3.7-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/7e/cd/fe58041e9011f307c490e3e17dd48cc516448f7c698a3f2d9d9d65d7e6a8/networkx-3.7-py3-none-any.whl",
+      "sha256": "e3fd2c13a7814cee3746340d8d7f8598a67f16a58bf47fb7f8793fab6efca1b0"
+    },
+    {
+      "filename": "numpy-2.5.3-cp312-cp312-macosx_14_0_arm64.whl",
+      "url": "https://files.pythonhosted.org/packages/9c/59/a312e95696e5f601914dd8b6dd844692ba61670807417e24b68e337b5c70/numpy-2.5.3-cp312-cp312-macosx_14_0_arm64.whl",
+      "sha256": "a72f874bc9e10e4b8f80426fb49716d5141f64442a0c8418065093ec8017fbb0"
+    },
+    {
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+    },
+    {
+      "filename": "pillow-12.3.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "url": "https://files.pythonhosted.org/packages/d8/66/9a386a92561f402389a4fc70c18838bf6d35eb5eb5c6850b4b2dc64f5048/pillow-12.3.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "sha256": "ffd0c5368496f41b0944be820fcb7a838aa6e623d250b01acf2643939c3f99d7"
+    },
+    {
+      "filename": "pydantic-2.13.5-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/eb/47/c95ffc2009878c7aac0c5e08528022dcb885933252a88b5f170058014464/pydantic-2.13.5-py3-none-any.whl",
+      "sha256": "346a034f080da3755d8e9cb5e00e8b07de1d39e4f6e2c87d8ab7cafa0b269a73"
+    },
+    {
+      "filename": "pydantic_core-2.46.5-cp312-cp312-macosx_11_0_arm64.whl",
+      "url": "https://files.pythonhosted.org/packages/db/50/26b091836076ce4cb2fac264186936acc069e0595772cfd02a563bc4761a/pydantic_core-2.46.5-cp312-cp312-macosx_11_0_arm64.whl",
+      "sha256": "a39ac25a9a2fa4072efdb429833c4a4c8009a51ff9eea3eeae131713cd27991e"
+    },
+    {
+      "filename": "python_pptx-1.0.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/d9/4f/00be2196329ebbff56ce564aa94efb0fbc828d00de250b1980de1a34ab49/python_pptx-1.0.2-py3-none-any.whl",
+      "sha256": "160838e0b8565a8b1f67947675886e9fea18aa5e795db7ae531606d68e785cba"
+    },
+    {
+      "filename": "scikit_image-0.26.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "url": "https://files.pythonhosted.org/packages/e3/be/f8dd17d0510f9911f9f17ba301f7455328bf13dae416560126d428de9568/scikit_image-0.26.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "sha256": "3409e89d66eff5734cd2b672d1c48d2759360057e714e1d92a11df82c87cba37"
+    },
+    {
+      "filename": "scipy-1.18.1-cp312-cp312-macosx_14_0_arm64.whl",
+      "url": "https://files.pythonhosted.org/packages/a5/f6/a5b82f8abbe14d134691b8b903696f701d25a081353a29dc655c364d9e62/scipy-1.18.1-cp312-cp312-macosx_14_0_arm64.whl",
+      "sha256": "7bbf207c4453ce1ad2e00b17313852b33310b83090c2311bdaf97f93c0380d12"
+    },
+    {
+      "filename": "tifffile-2026.9.20-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/05/bf/04f3e61cb20a03678ca43f29bae9a7d0b7d9f563b86f5f600b2d8fba9712/tifffile-2026.9.20-py3-none-any.whl",
+      "sha256": "9b913167b8f66a57f2e7c0454486c4c4607196d494797461226166bd0755c0e6"
+    },
+    {
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    {
+      "filename": "typing_inspection-0.4.4-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/67/81/4add07e5172b7ac40d8ed5ff580409a7801a4fe26d529bdd915401dabfbe/typing_inspection-0.4.4-py3-none-any.whl",
+      "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147"
+    },
+    {
+      "filename": "xlsxwriter-3.2.9-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/3a/0c/3662f4a66880196a590b202f0db82d919dd2f89e99a27fadef91c4a33d41/xlsxwriter-3.2.9-py3-none-any.whl",
+      "sha256": "9a5db42bc5dff014806c58a20b9eae7322a134abb6fce3c92c181bfb275ec5b3"
+    },
+    {
+      "filename": "lxml-6.1.3-cp312-cp312-macosx_10_13_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/a8/25/070c92013a1c029a602b03560d68772313d918268667fa993da7961759c9/lxml-6.1.3-cp312-cp312-macosx_10_13_x86_64.whl",
+      "sha256": "623c8799c17128753c65699f1c3aa32402657393a9ad6db09ed8b98ddf76611d"
+    },
+    {
+      "filename": "numpy-2.5.3-cp312-cp312-macosx_14_0_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/30/d0/5623a1707ed4fe16e3909fe3cf5ee3da004ae677ad23d83bbf3adf1a6faf/numpy-2.5.3-cp312-cp312-macosx_14_0_x86_64.whl",
+      "sha256": "fc36dc566135b5eceec4cf89758fcb719266a019ef07dae1754ae7c9f617ef3e"
+    },
+    {
+      "filename": "pillow-12.3.0-cp312-cp312-macosx_10_13_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/37/bf/fb3ebff8ddcb76aac5a01389251bbbb9519922a9b520d8247c1ca864a25d/pillow-12.3.0-cp312-cp312-macosx_10_13_x86_64.whl",
+      "sha256": "ba09209fbe443b4acccebe845d8a138b89a8f4fbaeedd44953490b5315d5e965"
+    },
+    {
+      "filename": "pydantic_core-2.46.5-cp312-cp312-macosx_10_12_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/82/3f/76358795aa7a8c6d4f36e2cb828ad1c90ee118e1393a9281664f5aade9d4/pydantic_core-2.46.5-cp312-cp312-macosx_10_12_x86_64.whl",
+      "sha256": "b9fe6fb92520e3fd61f2e49000b6911b188824f089b75973ea06d6267f0b476d"
+    },
+    {
+      "filename": "scikit_image-0.26.0-cp312-cp312-macosx_10_13_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/99/e8/e13757982264b33a1621628f86b587e9a73a13f5256dad49b19ba7dc9083/scikit_image-0.26.0-cp312-cp312-macosx_10_13_x86_64.whl",
+      "sha256": "d454b93a6fa770ac5ae2d33570f8e7a321bb80d29511ce4b6b78058ebe176e8c"
+    },
+    {
+      "filename": "scipy-1.18.1-cp312-cp312-macosx_14_0_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/23/22/0858a0bbd6b3e825ceb8cd9baf9eaf3b2f2b1d77727eb6be40500bcdc92f/scipy-1.18.1-cp312-cp312-macosx_14_0_x86_64.whl",
+      "sha256": "78c0665edead396b1abb4897c41a5c1d9bf090c8a637a4c20a61678e0a264e66"
+    }
+  ],
+  "windows_validation": {
+    "host": "Windows x64",
+    "passed": true,
+    "behavioral_checks": 16,
+    "external_python_used_by_executable": false
+  },
+  "bytecode_validation": {
+    "host": "Windows x64 CPython 3.12",
+    "passed": true,
+    "isolated_behavioral_checks": 16,
+    "native_pptx_checks": 4,
+    "macos_runtime_execution": false
+  },
+  "skill_format_validated": true,
+  "macos_launcher_shell_syntax_validated": true,
+  "localization": {
+    "default_language": "English",
+    "readme_languages": [
+      "English",
+      "Simplified Chinese"
+    ],
+    "source_image_text": "preserved unless translation is requested",
+    "engine_changes": "Mac string constants only; executable instructions unchanged",
+    "update_date": "2026-10-06"
+  }
+}

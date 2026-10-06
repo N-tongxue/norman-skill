@@ -1,0 +1,230 @@
+{
+  "windows_runtime": {
+    "host": "Windows x64",
+    "checks": [
+      {
+        "check": "version_and_help",
+        "passed": true
+      },
+      {
+        "check": "coordinate_mapping_original_parity",
+        "passed": true
+      },
+      {
+        "check": "invalid_mapping_dimensions",
+        "passed": true
+      },
+      {
+        "check": "office_probe_original_parity",
+        "passed": true
+      },
+      {
+        "check": "quick_check_valid",
+        "passed": true
+      },
+      {
+        "check": "quick_check_invalid",
+        "passed": true
+      },
+      {
+        "check": "advanced_check_valid",
+        "passed": true
+      },
+      {
+        "check": "advanced_check_invalid",
+        "passed": true
+      },
+      {
+        "check": "missing_vba_reports_failure",
+        "passed": true
+      },
+      {
+        "check": "quick_diff_identical",
+        "passed": true
+      },
+      {
+        "check": "quick_diff_changed",
+        "passed": true
+      },
+      {
+        "check": "advanced_diff_identical",
+        "passed": true
+      },
+      {
+        "check": "advanced_diff_changed",
+        "passed": true
+      },
+      {
+        "check": "crop_original_parity_unicode_paths",
+        "passed": true
+      },
+      {
+        "check": "crop_json_input_and_boundary_validation",
+        "passed": true
+      },
+      {
+        "check": "run_rejects_invalid_inputs_before_opening_office",
+        "passed": true
+      }
+    ]
+  },
+  "compiled_author_bytecode": {
+    "host": "Windows x64 CPython 3.12",
+    "checks": [
+      {
+        "check": "version_and_help",
+        "passed": true
+      },
+      {
+        "check": "coordinate_mapping_original_parity",
+        "passed": true
+      },
+      {
+        "check": "invalid_mapping_dimensions",
+        "passed": true
+      },
+      {
+        "check": "office_probe_original_parity",
+        "passed": true
+      },
+      {
+        "check": "quick_check_valid",
+        "passed": true
+      },
+      {
+        "check": "quick_check_invalid",
+        "passed": true
+      },
+      {
+        "check": "advanced_check_valid",
+        "passed": true
+      },
+      {
+        "check": "advanced_check_invalid",
+        "passed": true
+      },
+      {
+        "check": "missing_vba_reports_failure",
+        "passed": true
+      },
+      {
+        "check": "quick_diff_identical",
+        "passed": true
+      },
+      {
+        "check": "quick_diff_changed",
+        "passed": true
+      },
+      {
+        "check": "advanced_diff_identical",
+        "passed": true
+      },
+      {
+        "check": "advanced_diff_changed",
+        "passed": true
+      },
+      {
+        "check": "crop_original_parity_unicode_paths",
+        "passed": true
+      },
+      {
+        "check": "crop_json_input_and_boundary_validation",
+        "passed": true
+      },
+      {
+        "check": "run_rejects_invalid_inputs_before_opening_office",
+        "passed": true
+      }
+    ]
+  },
+  "native_pptx_compiled_bytecode": {
+    "host": "Windows x64 CPython 3.12",
+    "passed": true,
+    "checks": [
+      "editable_text_curve_arrow_local_crop",
+      "reject_whole_image_substitution",
+      "preserve_existing_user_output",
+      "reject_invalid_path_data"
+    ]
+  },
+  "macos_runtime_executed": false,
+  "macos_powerpoint_executed": false,
+  "english_localization": {
+    "date": "2026-10-06",
+    "host": "Windows x64 CPython 3.12",
+    "passed": true,
+    "skill_format_validated": true,
+    "bytecode_regression_checks": [
+      {
+        "check": "version_and_help",
+        "passed": true
+      },
+      {
+        "check": "coordinate_mapping_original_parity",
+        "passed": true
+      },
+      {
+        "check": "invalid_mapping_dimensions",
+        "passed": true
+      },
+      {
+        "check": "office_probe_original_parity",
+        "passed": true
+      },
+      {
+        "check": "quick_check_valid",
+        "passed": true
+      },
+      {
+        "check": "quick_check_invalid",
+        "passed": true
+      },
+      {
+        "check": "advanced_check_valid",
+        "passed": true
+      },
+      {
+        "check": "advanced_check_invalid",
+        "passed": true
+      },
+      {
+        "check": "missing_vba_reports_failure",
+        "passed": true
+      },
+      {
+        "check": "quick_diff_identical",
+        "passed": true
+      },
+      {
+        "check": "quick_diff_changed",
+        "passed": true
+      },
+      {
+        "check": "advanced_diff_identical",
+        "passed": true
+      },
+      {
+        "check": "advanced_diff_changed",
+        "passed": true
+      },
+      {
+        "check": "crop_original_parity_unicode_paths",
+        "passed": true
+      },
+      {
+        "check": "crop_json_input_and_boundary_validation",
+        "passed": true
+      },
+      {
+        "check": "run_rejects_invalid_inputs_before_opening_office",
+        "passed": true
+      }
+    ],
+    "native_pptx_checks_passed": 4,
+    "source_text_preserved": true,
+    "generated_notes_and_validation_errors_in_english": true,
+    "macos_runtime_execution": false,
+    "macos_powerpoint_execution": false,
+    "instruction_bytecode_unchanged": true
+  }
+}

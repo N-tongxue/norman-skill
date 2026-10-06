@@ -1,0 +1,5 @@
+interface:
+  display_name: "norman-fig2ppt"
+  short_description: "Rebuild scientific figures as editable PowerPoint objects"
+  brand_color: "#2B6CB0"
+  default_prompt: "Use $norman-fig2ppt to rebuild this image as editable PowerPoint; ask whether to use Quick or Advanced mode unless I have already specified a mode."
