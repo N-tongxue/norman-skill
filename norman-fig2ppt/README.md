@@ -105,8 +105,6 @@ If macOS blocks first launch, follow its system controls to allow the applicatio
 
 Created by **N Tongxue** on Xiaohongshu (**N同学**), and **Naixin de N Tongxue** on Douyin / Bilibili (**耐心的N同学**).
 
-Third-party notices are included in `THIRD_PARTY_LICENSES` and the bundled runtime license directories. Windows uses the existing Nuitka-compiled engine; Mac author code is distributed as CPython bytecode without the original author `.py` files or private build scripts. Bytecode and binaries can be reverse-engineered; the package makes no strong source-secrecy or DRM guarantee.
-
 ## 简体中文
 
 ### 能做什么
@@ -200,5 +198,3 @@ Windows 行为检查已通过。Mac 两种架构已完成归档、哈希、架�
 ### 作者与许可
 
 作者：小红书 **N同学**；抖音 / B站 **耐心的N同学**。
-
-第三方组件许可保存在 `THIRD_PARTY_LICENSES` 和各内置运行环境的许可目录。Windows 保持现有 Nuitka 编译引擎；Mac 作者代码以 CPython 字节码分发，不包含作者原始 `.py` 或私有构建脚本。字节码与二进制均可能被逆向，本包不提供强源码保密或 DRM 保证。
