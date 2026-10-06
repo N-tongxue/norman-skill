@@ -1,7 +1,7 @@
 {
   "name": "norman-fig2ppt",
-  "version": "1.2.0-unified",
-  "packaging_date": "2026-10-06",
+  "version": "1.2.1-slim",
+  "packaging_date": "2026-10-07",
   "platforms": [
     "Windows x64",
     "macOS arm64",
@@ -9,8 +9,8 @@
   ],
   "python_installation_required": false,
   "download_at_first_run": false,
-  "windows_engine": "Existing Nuitka 1.0.0 native runtime",
-  "macos_engine": "CPython 3.12.15 bundled interpreter + compiled author bytecode 1.1.0 + vendored native wheels",
+  "windows_engine": "Recompiled Nuitka 4.2.2 standalone; CLI version 1.0.0",
+  "macos_engine": "Bundled CPython 3.12.15 + author bytecode, CLI version 1.1.0 + necessary native dependencies",
   "macos_dependency_minimum_version": "14.0",
   "macos": {
     "arm64": {
@@ -20,29 +20,28 @@
         "sha256": "316a463172740e71d8dca1f2730784e325f3f720941137b5d674d5801a632213",
         "size": 25146462
       },
-      "wheels": [
-        "annotated_types-0.8.0-py3-none-any.whl",
-        "imageio-2.38.0-py3-none-any.whl",
-        "lazy_loader-0.4-py3-none-any.whl",
-        "lxml-6.1.3-cp312-cp312-macosx_10_13_universal2.whl",
-        "networkx-3.7-py3-none-any.whl",
-        "numpy-2.5.3-cp312-cp312-macosx_14_0_arm64.whl",
-        "packaging-26.3-py3-none-any.whl",
-        "pillow-12.3.0-cp312-cp312-macosx_11_0_arm64.whl",
-        "pydantic-2.13.5-py3-none-any.whl",
-        "pydantic_core-2.46.5-cp312-cp312-macosx_11_0_arm64.whl",
-        "python_pptx-1.0.2-py3-none-any.whl",
-        "scikit_image-0.26.0-cp312-cp312-macosx_11_0_arm64.whl",
-        "scipy-1.18.1-cp312-cp312-macosx_14_0_arm64.whl",
-        "tifffile-2026.9.20-py3-none-any.whl",
-        "typing_extensions-4.16.0-py3-none-any.whl",
-        "typing_inspection-0.4.4-py3-none-any.whl",
-        "xlsxwriter-3.2.9-py3-none-any.whl"
+      "retained_packages": [
+        "Pillow",
+        "NumPy",
+        "lxml",
+        "python-pptx",
+        "XlsxWriter",
+        "Pydantic",
+        "pydantic-core",
+        "typing-extensions",
+        "typing-inspection",
+        "annotated-types",
+        "packaging"
       ],
-      "native_binaries": 227,
-      "library_dependency_paths": "all referenced nonsystem libraries present",
-      "architecture": "arm64",
-      "runtime_executed": false
+      "scipy_subset": "Original _nd_image native filter kernel; no full SciPy or scikit-image import",
+      "audit": {
+        "architecture": "arm64",
+        "native_binaries": 58,
+        "non_system_library_dependencies_present": true,
+        "retained_native_binary_bytes_unchanged": true,
+        "runtime_executed_on_real_mac": false,
+        "scipy_filter_kernel_unchanged": true
+      }
     },
     "x86_64": {
       "python_source": {
@@ -51,29 +50,28 @@
         "sha256": "a8fd7a91852f19b6d959793ef41fad048631ccb2a334a9ecdf573255298f7978",
         "size": 24850741
       },
-      "wheels": [
-        "annotated_types-0.8.0-py3-none-any.whl",
-        "imageio-2.38.0-py3-none-any.whl",
-        "lazy_loader-0.4-py3-none-any.whl",
-        "lxml-6.1.3-cp312-cp312-macosx_10_13_x86_64.whl",
-        "networkx-3.7-py3-none-any.whl",
-        "numpy-2.5.3-cp312-cp312-macosx_14_0_x86_64.whl",
-        "packaging-26.3-py3-none-any.whl",
-        "pillow-12.3.0-cp312-cp312-macosx_10_13_x86_64.whl",
-        "pydantic-2.13.5-py3-none-any.whl",
-        "pydantic_core-2.46.5-cp312-cp312-macosx_10_12_x86_64.whl",
-        "python_pptx-1.0.2-py3-none-any.whl",
-        "scikit_image-0.26.0-cp312-cp312-macosx_10_13_x86_64.whl",
-        "scipy-1.18.1-cp312-cp312-macosx_14_0_x86_64.whl",
-        "tifffile-2026.9.20-py3-none-any.whl",
-        "typing_extensions-4.16.0-py3-none-any.whl",
-        "typing_inspection-0.4.4-py3-none-any.whl",
-        "xlsxwriter-3.2.9-py3-none-any.whl"
+      "retained_packages": [
+        "Pillow",
+        "NumPy",
+        "lxml",
+        "python-pptx",
+        "XlsxWriter",
+        "Pydantic",
+        "pydantic-core",
+        "typing-extensions",
+        "typing-inspection",
+        "annotated-types",
+        "packaging"
       ],
-      "native_binaries": 227,
-      "library_dependency_paths": "all referenced nonsystem libraries present",
-      "architecture": "x86_64",
-      "runtime_executed": false
+      "scipy_subset": "Original _nd_image native filter kernel; no full SciPy or scikit-image import",
+      "audit": {
+        "architecture": "x86_64",
+        "native_binaries": 58,
+        "non_system_library_dependencies_present": true,
+        "retained_native_binary_bytes_unchanged": true,
+        "runtime_executed_on_real_mac": false,
+        "scipy_filter_kernel_unchanged": true
+      }
     }
   },
   "macos_runtime_verified": false,
@@ -81,8 +79,8 @@
   "apple_notarized": false,
   "author_source_shipped": false,
   "bytecode_can_be_decompiled": true,
-  "macos_author_archive_sha256": "10aa01fadfd130d4f7025e357dd4e89f484dfc66c1ce693a94a5a53921e41f8b",
-  "wheel_sources": [
+  "macos_author_archive_sha256": "95938aa55f297818812df8fe6fce8b7d6f98f6a521bf0be35876053667af44ca",
+  "original_dependency_provenance": [
     {
       "filename": "annotated_types-0.8.0-py3-none-any.whl",
       "url": "https://files.pythonhosted.org/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl",
@@ -199,14 +197,48 @@
       "sha256": "78c0665edead396b1abb4897c41a5c1d9bf090c8a637a4c20a61678e0a264e66"
     }
   ],
+  "slimming": {
+    "unchanged_public_commands": true,
+    "unchanged_mac_launcher": true,
+    "ssim_exact_parity_checks": 155,
+    "ssim_equality": "exact Python float equality; no tolerance",
+    "unused_dependency_stack_removed": [
+      "full SciPy",
+      "scikit-image",
+      "networkx",
+      "imageio",
+      "tifffile",
+      "lazy-loader"
+    ],
+    "duplicate_python_aliases_removed": true,
+    "tests_pip_gui_and_development_files_omitted": true
+  },
   "windows_validation": {
     "host": "Windows x64",
     "passed": true,
     "behavioral_checks": 16,
-    "external_python_used_by_executable": false
+    "external_python_used_by_executable": false,
+    "powerpoint_macro_executed_and_saved": false,
+    "powerpoint_verification": {
+      "passed": true,
+      "original_behavior_matched": true,
+      "saved": false,
+      "editable_shape_verified": false,
+      "macro_executed": false,
+      "status": "blocked_by_existing_office_security",
+      "reason": "Programmatic access to Visual Basic Project is not trusted.",
+      "security_settings_changed": false,
+      "unchanged_fields_verified": [
+        "status",
+        "detail",
+        "exit_code",
+        "editable_shape_verified",
+        "presentation_open"
+      ]
+    }
   },
   "bytecode_validation": {
-    "host": "Windows x64 CPython 3.12",
+    "host": "Windows x64 CPython 3.12, isolated dependency environment",
     "passed": true,
     "isolated_behavioral_checks": 16,
     "native_pptx_checks": 4,
@@ -221,7 +253,7 @@
       "Simplified Chinese"
     ],
     "source_image_text": "preserved unless translation is requested",
-    "engine_changes": "Mac string constants only; executable instructions unchanged",
-    "update_date": "2026-10-06"
+    "engine_changes": "Existing messages and non-SSIM author modules preserved; only SSIM imports replaced",
+    "update_date": "2026-10-07"
   }
 }

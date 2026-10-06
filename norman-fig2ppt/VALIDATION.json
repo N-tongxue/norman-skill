@@ -66,95 +66,29 @@
         "check": "run_rejects_invalid_inputs_before_opening_office",
         "passed": true
       }
+    ],
+    "passed": true
+  },
+  "windows_powerpoint": {
+    "passed": true,
+    "original_behavior_matched": true,
+    "saved": false,
+    "editable_shape_verified": false,
+    "macro_executed": false,
+    "status": "blocked_by_existing_office_security",
+    "reason": "Programmatic access to Visual Basic Project is not trusted.",
+    "security_settings_changed": false,
+    "unchanged_fields_verified": [
+      "status",
+      "detail",
+      "exit_code",
+      "editable_shape_verified",
+      "presentation_open"
     ]
   },
   "compiled_author_bytecode": {
-    "host": "Windows x64 CPython 3.12",
+    "host": "Windows x64 CPython 3.12, isolated dependency environment",
     "checks": [
-      {
-        "check": "version_and_help",
-        "passed": true
-      },
-      {
-        "check": "coordinate_mapping_original_parity",
-        "passed": true
-      },
-      {
-        "check": "invalid_mapping_dimensions",
-        "passed": true
-      },
-      {
-        "check": "office_probe_original_parity",
-        "passed": true
-      },
-      {
-        "check": "quick_check_valid",
-        "passed": true
-      },
-      {
-        "check": "quick_check_invalid",
-        "passed": true
-      },
-      {
-        "check": "advanced_check_valid",
-        "passed": true
-      },
-      {
-        "check": "advanced_check_invalid",
-        "passed": true
-      },
-      {
-        "check": "missing_vba_reports_failure",
-        "passed": true
-      },
-      {
-        "check": "quick_diff_identical",
-        "passed": true
-      },
-      {
-        "check": "quick_diff_changed",
-        "passed": true
-      },
-      {
-        "check": "advanced_diff_identical",
-        "passed": true
-      },
-      {
-        "check": "advanced_diff_changed",
-        "passed": true
-      },
-      {
-        "check": "crop_original_parity_unicode_paths",
-        "passed": true
-      },
-      {
-        "check": "crop_json_input_and_boundary_validation",
-        "passed": true
-      },
-      {
-        "check": "run_rejects_invalid_inputs_before_opening_office",
-        "passed": true
-      }
-    ]
-  },
-  "native_pptx_compiled_bytecode": {
-    "host": "Windows x64 CPython 3.12",
-    "passed": true,
-    "checks": [
-      "editable_text_curve_arrow_local_crop",
-      "reject_whole_image_substitution",
-      "preserve_existing_user_output",
-      "reject_invalid_path_data"
-    ]
-  },
-  "macos_runtime_executed": false,
-  "macos_powerpoint_executed": false,
-  "english_localization": {
-    "date": "2026-10-06",
-    "host": "Windows x64 CPython 3.12",
-    "passed": true,
-    "skill_format_validated": true,
-    "bytecode_regression_checks": [
       {
         "check": "version_and_help",
         "passed": true
@@ -220,11 +154,64 @@
         "passed": true
       }
     ],
-    "native_pptx_checks_passed": 4,
+    "passed": true
+  },
+  "native_pptx_compiled_bytecode": {
+    "passed": true,
+    "host": "Windows x64 CPython 3.12 in a fresh environment containing only the slim release dependencies",
+    "checks": 4,
+    "verified_behaviors": [
+      "Editable text, shapes, curves, arrows, and local crops",
+      "Existing user output is never overwritten",
+      "Invalid path data does not create a presentation",
+      "Whole-image substitution is rejected"
+    ],
+    "command": "isolated-test-env/Scripts/python.exe -m unittest discover -s local-engine-macos-private/tests -p test_native_build.py -v",
+    "macos_runtime_executed": false
+  },
+  "ssim_exact_parity": {
+    "passed": true,
+    "checks": 155,
+    "ssim_equality": "exact Python float equality; no tolerance",
+    "native_kernel": "original SciPy 1.18.1 binary, unchanged"
+  },
+  "author_code_parity": {
+    "passed": true,
+    "unchanged_author_modules": [
+      "norman_engine.pyc",
+      "engine_modules/__init__.pyc",
+      "engine_modules/norman_canvas_mapper.pyc",
+      "engine_modules/norman_crop_assets.pyc",
+      "engine_modules/norman_macos_runner.pyc",
+      "engine_modules/norman_macro_check.pyc",
+      "engine_modules/norman_native_pptx.pyc",
+      "engine_modules/norman_office_probe.pyc",
+      "engine_modules/norman_quick_macro_check.pyc",
+      "engine_modules/norman_scene.pyc",
+      "__main__.pyc"
+    ],
+    "native_pptx_entries_identical_except_creation_timestamp": 43,
     "source_text_preserved": true,
-    "generated_notes_and_validation_errors_in_english": true,
-    "macos_runtime_execution": false,
-    "macos_powerpoint_execution": false,
-    "instruction_bytecode_unchanged": true
-  }
+    "native_objects_and_crops_preserved": true
+  },
+  "macos_native_library_audits": {
+    "arm64": {
+      "architecture": "arm64",
+      "native_binaries": 58,
+      "non_system_library_dependencies_present": true,
+      "retained_native_binary_bytes_unchanged": true,
+      "runtime_executed_on_real_mac": false,
+      "scipy_filter_kernel_unchanged": true
+    },
+    "x86_64": {
+      "architecture": "x86_64",
+      "native_binaries": 58,
+      "non_system_library_dependencies_present": true,
+      "retained_native_binary_bytes_unchanged": true,
+      "runtime_executed_on_real_mac": false,
+      "scipy_filter_kernel_unchanged": true
+    }
+  },
+  "macos_runtime_executed": false,
+  "macos_powerpoint_executed": false
 }
