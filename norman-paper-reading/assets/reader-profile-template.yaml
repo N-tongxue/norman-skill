@@ -1,0 +1,13 @@
+# Copy into your research project. Empty fields are unknown; do not infer a topic from them.
+# Instructions are English; language controls the generated report, not the skill language.
+language: "zh-CN"
+research_field: ""
+current_question: ""
+reading_goal: "Understand study design and evidence"
+background_level: "Research experience; new to this paper's field"
+known_methods: []
+available_data: []
+available_resources: []
+preferred_output: "markdown"
+# The bilingual analysis watermark is required; this legacy field cannot disable it.
+include_brand_footer: true

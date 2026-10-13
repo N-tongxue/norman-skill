@@ -1,0 +1,5 @@
+interface:
+  display_name: "Norman Paper Reading"
+  short_description: "Explain study design, original figures, and evidence boundaries"
+  brand_color: "#28664F"
+  default_prompt: "Use $norman-paper-reading to read this paper closely, show its original figures and tables beside their explanations, distinguish facts from inferences, and organize the analysis under prominent section headings."

@@ -1,0 +1,4 @@
+The default uint8 RGB SSIM path is adapted from scikit-image 0.26.0 and SciPy 1.18.1 under BSD-3-Clause.
+The SciPy _nd_image extension binaries are redistributed without modification.
+The original SSIM formula, default 7-pixel reflect filter, sample covariance, border crop, and channel mean are retained.
+Corresponding license notices are included in this package.

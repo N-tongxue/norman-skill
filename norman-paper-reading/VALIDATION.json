@@ -1,0 +1,473 @@
+{
+  "passed": true,
+  "prior_windows_validation": {
+    "passed": true,
+    "build_host": "Windows x64",
+    "native_execution_verified": true,
+    "behavioral_checks": [
+      {
+        "check": "windows_version",
+        "passed": true
+      },
+      {
+        "check": "windows_frozen_without_external_python",
+        "passed": true
+      },
+      {
+        "check": "windows_extract_help",
+        "passed": true
+      },
+      {
+        "check": "windows_render_help",
+        "passed": true
+      },
+      {
+        "check": "windows_validate_help",
+        "passed": true
+      },
+      {
+        "check": "windows_reader_help",
+        "passed": true
+      },
+      {
+        "check": "windows_invalid_command",
+        "passed": true
+      },
+      {
+        "check": "windows_unicode_error_output",
+        "passed": true
+      },
+      {
+        "check": "windows_full_extraction",
+        "passed": true
+      },
+      {
+        "check": "windows_text_and_images",
+        "passed": true
+      },
+      {
+        "check": "windows_scan_page_flagged",
+        "passed": true
+      },
+      {
+        "check": "windows_rotation_recorded",
+        "passed": true
+      },
+      {
+        "check": "windows_selected_page",
+        "passed": true
+      },
+      {
+        "check": "windows_render_manifest_merge",
+        "passed": true
+      },
+      {
+        "check": "windows_overwrite_refused",
+        "passed": true
+      },
+      {
+        "check": "windows_invalid_crop_has_no_output",
+        "passed": true
+      },
+      {
+        "check": "windows_invalid_pages_has_no_output",
+        "passed": true
+      },
+      {
+        "check": "windows_valid_note",
+        "passed": true
+      },
+      {
+        "check": "windows_offline_image_embedded",
+        "passed": true
+      },
+      {
+        "check": "windows_mandatory_bilingual_watermark",
+        "passed": true
+      },
+      {
+        "check": "windows_source_author_preserved",
+        "passed": true
+      },
+      {
+        "check": "windows_missing_asset_fails",
+        "passed": true
+      },
+      {
+        "check": "windows_html_missing_image_has_no_output",
+        "passed": true
+      },
+      {
+        "check": "windows_deep_evidence_required",
+        "passed": true
+      }
+    ],
+    "positive_deep_evidence_validation": true,
+    "source_pdf_unchanged": true,
+    "pymupdf_native_rendering_verified": true,
+    "separate_python_installation_used_at_runtime": false
+  },
+  "prior_macos_validation": {
+    "passed": true,
+    "build_host": "Windows x64",
+    "native_execution_verified": false,
+    "apple_notarized": false,
+    "author_bytecode_behavior_verified_on": "Windows x64 CPython 3.12",
+    "behavioral_checks": [
+      {
+        "check": "macos_bytecode_on_windows_version",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_extract_help",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_render_help",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_validate_help",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_reader_help",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_invalid_command",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_unicode_error_output",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_full_extraction",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_text_and_images",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_scan_page_flagged",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_rotation_recorded",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_selected_page",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_render_manifest_merge",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_overwrite_refused",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_invalid_crop_has_no_output",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_invalid_pages_has_no_output",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_valid_note",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_offline_image_embedded",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_mandatory_bilingual_watermark",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_source_author_preserved",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_missing_asset_fails",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_html_missing_image_has_no_output",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_on_windows_deep_evidence_required",
+        "passed": true
+      },
+      {
+        "check": "compiled_bytecode_matches_windows_paper_text.md",
+        "passed": true
+      },
+      {
+        "check": "compiled_bytecode_matches_windows_source_map.json",
+        "passed": true
+      },
+      {
+        "check": "compiled_bytecode_identical_render_page-0001.png",
+        "passed": true
+      },
+      {
+        "check": "compiled_bytecode_identical_render_page-0002.png",
+        "passed": true
+      },
+      {
+        "check": "compiled_bytecode_identical_render_fig-1.png",
+        "passed": true
+      },
+      {
+        "check": "source_pdf_unchanged",
+        "passed": true
+      },
+      {
+        "check": "macos_arm64_interpreter_unchanged",
+        "passed": true
+      },
+      {
+        "check": "macos_arm64_architecture_and_dependency_closure",
+        "passed": true
+      },
+      {
+        "check": "macos_x86_64_interpreter_unchanged",
+        "passed": true
+      },
+      {
+        "check": "macos_x86_64_architecture_and_dependency_closure",
+        "passed": true
+      },
+      {
+        "check": "macos_bytecode_magic_and_zip_integrity",
+        "passed": true
+      }
+    ],
+    "macos_native_library_audits": [
+      {
+        "architecture": "arm64",
+        "native_files": 5,
+        "minimum_macos": "11.0.0",
+        "dependency_closure_verified": true,
+        "native_execution_verified": false,
+        "libraries": [
+          {
+            "file": "bin/macos-arm64/python3.12",
+            "cpu": 16777228,
+            "filetype": 2,
+            "loads": [
+              "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+              "/usr/lib/libSystem.B.dylib",
+              "/usr/lib/libz.1.dylib",
+              "/usr/lib/libedit.3.dylib",
+              "/usr/lib/libncurses.5.4.dylib",
+              "/usr/lib/libpanel.5.4.dylib",
+              "/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration"
+            ],
+            "rpaths": [
+              "@executable_path/../lib"
+            ],
+            "minimum_macos": [
+              11,
+              0,
+              0
+            ]
+          },
+          {
+            "file": "bin/macos-arm64/site-packages/pymupdf/libmupdfcpp.so",
+            "cpu": 16777228,
+            "filetype": 6,
+            "loads": [
+              "@rpath/libmupdf.dylib",
+              "/usr/lib/libc++.1.dylib",
+              "/usr/lib/libSystem.B.dylib"
+            ],
+            "rpaths": [
+              "@loader_path/."
+            ],
+            "minimum_macos": [
+              11,
+              0,
+              0
+            ]
+          },
+          {
+            "file": "bin/macos-arm64/site-packages/pymupdf/_extra.so",
+            "cpu": 16777228,
+            "filetype": 6,
+            "loads": [
+              "@rpath/libmupdf.dylib",
+              "@rpath/libmupdfcpp.so",
+              "/usr/lib/libSystem.B.dylib",
+              "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+              "/usr/lib/libc++.1.dylib"
+            ],
+            "rpaths": [
+              "@loader_path/"
+            ],
+            "minimum_macos": [
+              11,
+              0,
+              0
+            ]
+          },
+          {
+            "file": "bin/macos-arm64/site-packages/pymupdf/_mupdf.so",
+            "cpu": 16777228,
+            "filetype": 6,
+            "loads": [
+              "/usr/lib/libSystem.B.dylib",
+              "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+              "@rpath/libmupdfcpp.so",
+              "/usr/lib/libc++.1.dylib"
+            ],
+            "rpaths": [
+              "@loader_path/."
+            ],
+            "minimum_macos": [
+              11,
+              0,
+              0
+            ]
+          },
+          {
+            "file": "bin/macos-arm64/site-packages/pymupdf/libmupdf.dylib",
+            "cpu": 16777228,
+            "filetype": 6,
+            "loads": [
+              "/usr/lib/libSystem.B.dylib",
+              "/usr/lib/libc++.1.dylib"
+            ],
+            "rpaths": [],
+            "minimum_macos": [
+              11,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "architecture": "x86_64",
+        "native_files": 5,
+        "minimum_macos": "10.15.0",
+        "dependency_closure_verified": true,
+        "native_execution_verified": false,
+        "libraries": [
+          {
+            "file": "bin/macos-x86_64/python3.12",
+            "cpu": 16777223,
+            "filetype": 2,
+            "loads": [
+              "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+              "/usr/lib/libSystem.B.dylib",
+              "/usr/lib/libz.1.dylib",
+              "/usr/lib/libedit.3.dylib",
+              "/usr/lib/libncurses.5.4.dylib",
+              "/usr/lib/libpanel.5.4.dylib",
+              "/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration"
+            ],
+            "rpaths": [
+              "@executable_path/../lib"
+            ],
+            "minimum_macos": [
+              10,
+              15,
+              0
+            ]
+          },
+          {
+            "file": "bin/macos-x86_64/site-packages/pymupdf/libmupdfcpp.so",
+            "cpu": 16777223,
+            "filetype": 6,
+            "loads": [
+              "@rpath/libmupdf.dylib",
+              "/usr/lib/libc++.1.dylib",
+              "/usr/lib/libSystem.B.dylib"
+            ],
+            "rpaths": [
+              "@loader_path/."
+            ],
+            "minimum_macos": [
+              10,
+              15,
+              0
+            ]
+          },
+          {
+            "file": "bin/macos-x86_64/site-packages/pymupdf/_extra.so",
+            "cpu": 16777223,
+            "filetype": 6,
+            "loads": [
+              "@rpath/libmupdf.dylib",
+              "@rpath/libmupdfcpp.so",
+              "/usr/lib/libSystem.B.dylib",
+              "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+              "/usr/lib/libc++.1.dylib"
+            ],
+            "rpaths": [
+              "@loader_path/"
+            ],
+            "minimum_macos": [
+              10,
+              15,
+              0
+            ]
+          },
+          {
+            "file": "bin/macos-x86_64/site-packages/pymupdf/_mupdf.so",
+            "cpu": 16777223,
+            "filetype": 6,
+            "loads": [
+              "/usr/lib/libSystem.B.dylib",
+              "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+              "@rpath/libmupdfcpp.so",
+              "/usr/lib/libc++.1.dylib"
+            ],
+            "rpaths": [
+              "@loader_path/."
+            ],
+            "minimum_macos": [
+              10,
+              15,
+              0
+            ]
+          },
+          {
+            "file": "bin/macos-x86_64/site-packages/pymupdf/libmupdf.dylib",
+            "cpu": 16777223,
+            "filetype": 6,
+            "loads": [
+              "/usr/lib/libSystem.B.dylib",
+              "/usr/lib/libc++.1.dylib"
+            ],
+            "rpaths": [],
+            "minimum_macos": [
+              10,
+              15,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "launcher_shell_syntax_verified": true,
+    "positive_deep_evidence_validation": true,
+    "limitation": "Actual execution on Apple Silicon and Intel Macs and Gatekeeper first launch has not been tested on this Windows build host."
+  },
+  "integrated_package_checks": {
+    "unchanged_payloads_verified": 228,
+    "windows_version_and_all_subcommands_verified": true,
+    "mac_launcher_shell_syntax_verified": true,
+    "skill_format_and_reference_links_verified": true,
+    "native_macos_execution_verified": false
+  }
+}
