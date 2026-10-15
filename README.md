@@ -53,7 +53,25 @@ Currently available Skills:
 | [norman-fig2ppt](norman-fig2ppt/) | 论文图片转为可编辑 PowerPoint 图形 / Convert paper figures into editable PowerPoint shapes | [中英说明 / Bilingual guide](norman-fig2ppt/README.md) |
 | [norman-paper-reading](norman-paper-reading/) · v1.4.0 | 研究过程重建、批判性证据审查、逐图精读与科研创新规划 / Research reconstruction, critical evidence evaluation, figure-by-figure analysis, and research innovation planning | [中英说明 / Bilingual guide](norman-paper-reading/README.md) |
 
-### 下载与安装 | Download and install
+### 下载与安装 | Download and Install
+
+**🚀 简捷安装 | Quick Installation**
+
+无需手动配置，只需将 Norman-Skill 的 GitHub 仓库链接发送给支持 Skill 安装的 AI 编程助手，并告诉它：
+
+No manual setup needed. Simply share the Norman-Skill GitHub repository link with an AI coding assistant that supports Skill installation and say:
+
+```text
+帮我安装 Norman-Skill 仓库中的所有 Skill。
+
+Install all Skills from the Norman-Skill repository.
+```
+
+AI 助手可根据仓库说明，自动完成下载、安装及依赖配置。安装完成后即可调用对应 Skill。
+
+The AI assistant can follow the repository instructions to download, install, and configure the Skills. Once installed, the Skills are ready to use.
+
+**📦 手动安装 | Manual Installation**
 
 完整的 Windows / Mac 本地技能分别位于 [norman-fig2ppt/](norman-fig2ppt/) 和 [norman-paper-reading/](norman-paper-reading/)。两者均包含 Windows x64、Mac Apple Silicon 和 Mac Intel 的运行组件、英文技能指令与中英双语说明。
 
