@@ -78,9 +78,9 @@ For installation paths, Quick / Advanced modes, platform requirements, and valid
 Use $norman-paper-reading to read this paper closely, explain the original figures, and propose testable next steps.
 ```
 
-本包已包含 Python 与 PDF 处理依赖，无需另装 Python，也无需首次运行时下载组件。Windows 已通过实机运行验证；Mac 两种架构已打包并完成静态检查，尚未在真实 Mac 上运行验证。扫描 PDF 会被标记，本包不含 OCR 引擎。
+本包已包含 Python 与 PDF 处理依赖，无需另装 Python，也无需首次运行时下载组件。扫描 PDF 会被标记，本包不含 OCR 引擎。
 
-Python and PDF-processing dependencies are bundled; no separate Python installation or first-run component download is required. Native Windows execution is verified. Both Mac architectures are packaged and statically checked, but native Mac execution has not been verified. Scanned PDFs are flagged; an OCR engine is not included.
+Python and PDF-processing dependencies are bundled; no separate Python installation or first-run component download is required. Scanned PDFs are flagged; an OCR engine is not included.
 
 模式、命令和完整使用说明：[中英使用说明](norman-paper-reading/README.md)。打包与验证记录：[PACKAGE-INFO.json](norman-paper-reading/PACKAGE-INFO.json)、[VALIDATION.json](norman-paper-reading/VALIDATION.json)。
 
