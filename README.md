@@ -81,10 +81,6 @@ The complete local skills are available in [norman-fig2ppt/](norman-fig2ppt/) an
 
 Download this repository using **Code → Download ZIP**, extract it, and copy the complete skill folder you need (`norman-fig2ppt` or `norman-paper-reading`) into your Codex skills directory. Keep all bundled files together.
 
-详细安装路径、Quick / Advanced 模式、平台要求及验证范围：[中英使用说明](norman-fig2ppt/README.md)。
-
-For installation paths, Quick / Advanced modes, platform requirements, and validation scope, see the [English / Chinese guide](norman-fig2ppt/README.md).
-
 ## 🎨 论文图片矢量化 | Paper Figure Vectorization
 
 将论文中的复杂图片转换为：
