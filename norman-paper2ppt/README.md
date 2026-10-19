@@ -80,14 +80,6 @@ Mac Terminal:
 
 Replace placeholders with actual paths and quote them. Use `--help` for helper subcommands. `prepare-image-batch` runs before image production; `validate` runs after final images and prompts exist. `notes` requires narration to be selected. PDF inspection does not modify the source PDF; it requires a new output directory. No OCR engine is bundled.
 
-## Runtime requirements and package records
-
-AI reading and image generation use the host's actual tools. Windows assembly and rendering require locally installed Microsoft PowerPoint and PowerShell. Mac assembly requires an available verified native PPTX backend and an actual renderer, as described in [local execution](references/local-execution.md); the `powerpoint` COM subcommand is Windows-only. No image model, Office installation, or universal Mac renderer is bundled.
-
-Author Python is distributed as a Windows executable and compiled bytecode. PowerShell logic is compressed and embedded, then temporarily extracted for execution; this is packaging rather than native PowerShell compilation or irreversible encryption. Third-party source and notices remain where needed.
-
-`PACKAGE-INFO.json` records dependency versions and source fingerprints. `VALIDATION.json` distinguishes the completed Windows checks from Mac static checks; native macOS execution has not been performed on the Windows build host. `SHA256SUMS.json` covers distributed files except itself. The bundled fig2ppt package retains its own licenses and validation history.
-
 ---
 
 # 中文说明
@@ -168,13 +160,3 @@ Mac 终端：
 /bin/sh "<skill-root>/bin/norman-paper2ppt" notes "<output>/deck.json" "<output>/speaker-notes.txt"
 /bin/sh "<skill-root>/bin/norman-paper2ppt" audit "<output>/paper-image.pptx" "<output>/deck.json" --kind image
 ```
-
-将占位符替换为实际路径并加引号，子命令参数可用 `--help` 查看。制图前运行 `prepare-image-batch`，最终图片和提示词齐全后再运行 `validate`；`notes` 仅在选择讲稿后执行。PDF 检查不会修改源论文，输出目录必须为新目录；包内不含 OCR 引擎。
-
-## 运行条件与打包记录
-
-AI 阅读和制图仍需宿主提供真实工具。Windows 组装与渲染需要本机 Microsoft PowerPoint 和 PowerShell；Mac 需要已核实的原生 PPTX 后端及实际渲染器，详见 [本地执行说明](references/local-execution.md)。`powerpoint` COM 子命令仅适用于 Windows。包内不含图像模型、Office 安装包或通用 Mac 渲染器。
-
-作者 Python 以 Windows EXE 和编译字节码交付；PowerShell 逻辑压缩封装，运行时临时执行。这属于打包封装，不等于 PowerShell 原生编译或不可逆加密。第三方依赖源码和许可证按需保留。
-
-`PACKAGE-INFO.json` 记录依赖版本及源码指纹；`VALIDATION.json` 区分已完成的 Windows 检查和 Mac 静态检查，本 Windows 构建机未进行 Mac 实机运行；`SHA256SUMS.json` 覆盖除自身以外的分发文件。内置 fig2ppt 保留其许可证与验证历史。
