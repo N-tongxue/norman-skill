@@ -40,17 +40,6 @@ The deck uses four parts: **one cover; one combined background / technical appro
 
 The cover places the paper title and bibliographic details on the left and the **real first PDF page** on the right. Designed text boxes, consistent hierarchy, readable original figures, and clear conclusion bands form full compositions. Editable output preserves text-box fills and padding; scientific figures and other complex visuals remain images.
 
-## Required cover and chat watermark
-
-Only the cover slide contains these exact two skill watermark lines. Slides 2 onward, including the final synthesis, contain no skill watermark:
-
-```text
-分析采用 Norman Paper2ppt / norman-paper2ppt 技能
-技能作者：小红书：N同学，抖音/B站：耐心的N同学。
-```
-
-The same lines appear as visible text after the paper-analysis update and final delivery response. Installation and skill-editing discussions do not trigger the paper-analysis watermark requirement. Scholarly sources and page numbers remain on relevant slides.
-
 ## Batch production and verification
 
 Read the paper once, settle the full deck's content and common style, compile all prompts, generate independent slide drafts continuously, then review the complete set and correct affected slides. AI drafts leave original-figure slots empty; the original files are inserted locally before final rendering. This is orchestration of real image-tool calls, not a separate image-generation batch API. The prompt compiler generates no images itself.
@@ -141,16 +130,6 @@ PPT 固定采用四部分结构：**封面 1 页；研究背景、技术路线�
 
 封面左侧为题名与题录，右侧为论文 **真实 PDF 第 1 页**。通过充分放大的原图、统一文字层级、浅色实底解释框和结论带形成丰满页面。可编辑版保留文本框底色和内边距；科研图及复杂视觉仍为普通图片。
 
-## 封面与聊天固定水印
-
-以下两行原样用于封面；第 2 页起，包括最后综合总结页，均不添加技能水印：
-
-```text
-分析采用 Norman Paper2ppt / norman-paper2ppt 技能
-技能作者：小红书：N同学，抖音/B站：耐心的N同学。
-```
-
-论文分析完成后的回复和最终交付回复末尾，也以普通可见文字显示这两行。仅讨论安装或修改技能时不触发论文分析水印要求。正常保留学术来源和页码。
 
 ## 批量制作与检查
 
