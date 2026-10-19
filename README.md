@@ -174,6 +174,21 @@ Python and PDF dependencies are bundled. No additional installation or first-run
 
 ---
 
+## 📑 学术论文转研究汇报 PPT | Academic Paper to Research Presentation
+
+[norman-paper2ppt](norman-paper2ppt/) 将学术论文 PDF 整理为中文研究汇报 PPT，围绕科学问题、研究方法与核心结果组织叙事，优先使用论文原图。支持 5 / 10 / 15 分钟三种汇报模式，默认输出 16:9 图片版 PPT，可选逐页讲稿和文字、图片可编辑版本。
+
+Turn academic paper PDFs into Chinese research presentations built around the scientific question, methods, and key findings, prioritizing original paper figures. Choose a 5-, 10-, or 15-minute presentation, with a 16:9 image-based PPTX and optional speaker notes and editable text/image output.
+
+```text
+请用 $norman-paper2ppt 将这篇论文制作成 10 分钟中文文献汇报，附逐页讲稿和可编辑 PPT：[PDF]。
+```
+
+完整说明：[中英使用说明](norman-paper2ppt/README.md)。已内置 Windows / Mac 本地运行组件，制作幻灯片还需当前 AI 环境提供图像生成工具及可用的 PPT 生成与渲染工具。
+
+Full guide: [Bilingual README](norman-paper2ppt/README.md). Windows / Mac runtimes are bundled; slide production also requires image-generation tools and an available presentation backend and renderer in the host AI environment.
+
+---
 ## 🚀 为什么做 Norman-Skill？ | Why Norman-Skill?
 
 很多科研工作其实并不难，但非常耗时间。  
