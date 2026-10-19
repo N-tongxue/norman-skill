@@ -1,0 +1,42 @@
+{
+  "name": "norman-paper2ppt",
+  "version": "1.0.0",
+  "packaging_date": "2026-10-18",
+  "platforms": [
+    "Windows x64",
+    "macOS Apple Silicon",
+    "macOS Intel"
+  ],
+  "single_skill_folder": true,
+  "python_installation_required": false,
+  "downloads_at_first_run": false,
+  "author_source_shipped": false,
+  "source_script_hashes": {
+    "editable_vba.py": "95dd5d3cd7b1c9886d0815b1ce4592de51cb47bef8a1d11e8666e828f47e7c7a",
+    "paper2ppt.py": "78795a8402c2747e97083a134f228b03e8418bae5d7107e7f609cfc20885c106",
+    "powerpoint.ps1": "9c3d1732c55178a9d01a0cf7f56c026f950f242b364a16892fcbe5fea56e00c9",
+    "prepare_image_batch.py": "7297c62c03869a6d03c24b33bb6048b8c3c729146456f9221be2d44b3d84bbfc"
+  },
+  "windows_engine": "PyInstaller 6.22.3 onefile, CPython 3.12.14",
+  "macos_engine": "CPython 3.12 bytecode ZIP; reuse bundled vendor native interpreter and Pillow",
+  "powershell_packaging": "Compressed embedded payload; extracted to private temporary directory for execution; not native compilation or encryption",
+  "macos_minimum": "14.0 (bundled fig2ppt dependency constraint)",
+  "external_requirements": [
+    "Host AI/imagegen tools",
+    "Windows PowerPoint for COM assembly/rendering; macOS verified PPTX backend and renderer"
+  ],
+  "dependencies": {
+    "windows": {
+      "Pillow": "13.0.0",
+      "pypdf": "6.21.1",
+      "pypdfium2": "5.14.0"
+    },
+    "macos": {
+      "Pillow": "12.3.0 (vendor)",
+      "pypdf": "6.21.1",
+      "pypdfium2": "5.14.0"
+    }
+  },
+  "macos_runtime_executed": false,
+  "bytecode_is_not_encryption": true
+}

@@ -1,0 +1,296 @@
+"""
+Code related to text extraction.
+
+Some parts are still in _page.py. In doubt, they will stay there.
+"""
+
+import math
+from collections.abc import Mapping
+from typing import Any, Callable, Literal, Optional, Union
+
+from .._utils import is_char_neutral, is_char_rtl
+from ..generic import DictionaryObject, TextStringObject, encode_pdfdocencoding
+from ..generic._font import Font
+
+CUSTOM_RTL_MIN: str = ""
+CUSTOM_RTL_MAX: str = ""
+CUSTOM_RTL_SPECIAL_CHARS: str = ""
+LAYOUT_NEW_BT_GROUP_SPACE_WIDTHS: int = 5
+UNICODE_LOWER_LIMIT = 0
+UNICODE_UPPER_LIMIT = 0x10FFFF
+
+
+class OrientationNotFoundError(Exception):
+    pass
+
+
+def set_custom_rtl(
+    _min: Union[str, int, None] = "",
+    _max: Union[str, int, None] = "",
+    specials: Union[str, list[int], None] = None,
+) -> tuple[str, str, str]:
+    """
+    Change the Right-To-Left and special characters custom parameters.
+
+    Args:
+        _min: The new minimum value for the range of custom characters that
+            will be written right to left.
+            If set to ``None``, the value will not be changed.
+            If set to a valid integer, it will be converted to its corresponding character.
+            The default value is "", which sets no additional range to be converted.
+        _max: The new maximum value for the range of custom characters that will
+            be written right to left.
+            If set to ``None``, the value will not be changed.
+            If set to a valid integer, it will be converted to its corresponding character.
+            The default value is "", which sets no additional range to be converted.
+        specials: The new list of special characters to be inserted in the
+            current insertion order.
+            If set to ``None``, the current value will not be changed.
+            If set to a string, it will be converted to a list of ASCII codes.
+            The default value is an empty list.
+
+    Returns:
+        A tuple containing the new values for ``CUSTOM_RTL_MIN``,
+        ``CUSTOM_RTL_MAX``, and ``CUSTOM_RTL_SPECIAL_CHARS``.
+
+    """
+    global CUSTOM_RTL_MIN, CUSTOM_RTL_MAX, CUSTOM_RTL_SPECIAL_CHARS
+    if isinstance(_min, int):
+        CUSTOM_RTL_MIN = chr(_min) if UNICODE_LOWER_LIMIT <= _min <= UNICODE_UPPER_LIMIT else ""
+    elif isinstance(_min, str):
+        CUSTOM_RTL_MIN = _min
+    if isinstance(_max, int):
+        CUSTOM_RTL_MAX = chr(_max) if UNICODE_LOWER_LIMIT <= _max <= UNICODE_UPPER_LIMIT else ""
+    elif isinstance(_max, str):
+        CUSTOM_RTL_MAX = _max
+    if isinstance(specials, str):
+        CUSTOM_RTL_SPECIAL_CHARS = specials
+    elif isinstance(specials, list):
+        CUSTOM_RTL_SPECIAL_CHARS = "".join(
+            chr(char) for char in specials if UNICODE_LOWER_LIMIT <= char <= UNICODE_UPPER_LIMIT
+        )
+    return CUSTOM_RTL_MIN, CUSTOM_RTL_MAX, CUSTOM_RTL_SPECIAL_CHARS
+
+
+def mult(
+    m: list[float],
+    n: Union[
+        list[float],
+        Mapping[Union[int, Literal["is_text", "is_render"]], Union[float, bool]],
+    ],
+) -> list[float]:
+    return [
+        m[0] * n[0] + m[1] * n[2],
+        m[0] * n[1] + m[1] * n[3],
+        m[2] * n[0] + m[3] * n[2],
+        m[2] * n[1] + m[3] * n[3],
+        m[4] * n[0] + m[5] * n[2] + n[4],
+        m[4] * n[1] + m[5] * n[3] + n[5],
+    ]
+
+
+def orient(m: list[float]) -> int:
+    if m[3] > 1e-6:
+        return 0
+    if m[3] < -1e-6:
+        return 180
+    if m[1] > 0:
+        return 90
+    return 270
+
+
+def crlf_space_check(  # noqa: PLR0913, PLR0917
+    text: str,
+    cmtm_prev: tuple[list[float], list[float]],
+    cmtm_matrix: tuple[list[float], list[float]],
+    memo_cmtm: tuple[list[float], list[float]],
+    font_resource: Optional[DictionaryObject],
+    orientations: tuple[int, ...],
+    output: str,
+    font_size: float,
+    visitor_text: Optional[Callable[[Any, Any, Any, Any, Any], None]],
+    str_widths: float,
+    spacewidth: float,
+    str_height: float,
+    line_span: Optional[tuple[int, float, float]],
+) -> tuple[str, str, list[float], list[float], Optional[tuple[int, float, float]]]:
+    cm_prev = cmtm_prev[0]
+    tm_prev = cmtm_prev[1]
+    cm_matrix = cmtm_matrix[0]
+    tm_matrix = cmtm_matrix[1]
+    memo_cm = memo_cmtm[0]
+    memo_tm = memo_cmtm[1]
+
+    m_prev = mult(tm_prev, cm_prev)
+    m = mult(tm_matrix, cm_matrix)
+    orientation = orient(m)
+    delta_x = m[4] - m_prev[4]
+    delta_y = m[5] - m_prev[5]
+    # Table 108 of the 1.7 reference ("Text positioning operators")
+    # delta_x/delta_y are expressed in the coordinate system produced by
+    # text matrix x current transformation matrix, so the scaling factors
+    # they get compared against have to be taken from the same combined
+    # matrices instead of the text matrices alone.
+    scale_prev_x = math.sqrt(m_prev[0]**2 + m_prev[1]**2)
+    scale_prev_y = math.sqrt(m_prev[2]**2 + m_prev[3]**2)
+    scale_y = math.sqrt(m[2]**2 + m[3]**2)
+    cm_prev = m
+
+    if orientation not in orientations:
+        raise OrientationNotFoundError
+    if orientation in (0, 180):
+        moved_height: float = delta_y
+        moved_width: float = delta_x
+    elif orientation in (90, 270):
+        moved_height = delta_x
+        moved_width = delta_y
+    # Keep track of the baseline range of the current extracted line. A centered
+    # row label can fall between the two baselines of a wrapped cell (#4130), so
+    # comparing only with the immediately preceding fragment can incorrectly
+    # insert a line break. Use the established baseline range for that case.
+    axis_index = 5 if orientation in (0, 180) else 4
+    axis = m[axis_index]
+    if line_span is None or line_span[0] != axis_index:
+        distance = abs(moved_height)
+    else:
+        lower, upper = line_span[1], line_span[2]
+        distance = 0.0 if lower <= axis <= upper else min(abs(axis - lower), abs(axis - upper))
+    last = (output + text)[-1:]
+    if distance > 0.8 * min(str_height * scale_prev_y, font_size * scale_y):
+        if last not in ("", "\n"):
+            output += text + "\n"
+            if visitor_text is not None:
+                visitor_text(
+                    text + "\n",
+                    memo_cm,
+                    memo_tm,
+                    font_resource,
+                    font_size,
+                )
+            text = ""
+        line_span = (axis_index, axis, axis)
+    else:
+        if (
+            (moved_width >= (spacewidth + str_widths) * scale_prev_x)
+            and last not in ("", " ")
+        ):
+            text += " "
+        if last in ("", "\n") or line_span is None or line_span[0] != axis_index:
+            line_span = (axis_index, axis, axis)
+        else:
+            line_span = (axis_index, min(line_span[1], axis), max(line_span[2], axis))
+    tm_prev = tm_matrix.copy()
+    cm_prev = cm_matrix.copy()
+    return text, output, cm_prev, tm_prev, line_span
+
+
+def get_text_operands(
+    operands: list[Union[str, TextStringObject]],
+    cm_matrix: list[float],
+    tm_matrix: list[float],
+    font: Font,
+    orientations: tuple[int, ...]
+) -> tuple[str, bool, float]:
+    text: str = ""
+    is_str_operands = False
+    widths: float = 0.0
+    width_cache: dict[str, float] = {}
+    m = mult(tm_matrix, cm_matrix)
+    orientation = orient(m)
+    raw_characters: str = ""
+    if orientation in orientations and len(operands) > 0:
+        if isinstance(operands[0], str):
+            text = operands[0]
+            is_str_operands = True
+        else:
+            text = ""
+            tt: bytes = (
+                encode_pdfdocencoding(operands[0])
+                if isinstance(operands[0], str)
+                else operands[0]
+            )
+            if isinstance(font.encoding, str):  # Apply named encoding
+                try:
+                    text = tt.decode(font.encoding, "surrogatepass")
+                except UnicodeDecodeError:
+                    # Fallback for odd byte counts or unmapped 16-bit GIDs/CIDs
+                    text = tt.decode(font.encoding, "surrogateescape")
+            else:  # Apply dict encoding
+                text = "".join(font.encoding.get(x, chr(x)) for x in tt)
+                raw_characters = "".join(chr(byte) for byte in tt)
+        for char in (raw_characters or text):
+            if char == font.space_char:
+                widths += font.space_width
+            else:
+                if char not in width_cache:
+                    width_cache[char] = font.get_text_width(char)
+                widths += width_cache[char]
+
+    width_cache.clear()
+    return (text, is_str_operands, widths)
+
+
+def get_display_str(
+    text: str,
+    cm_matrix: list[float],
+    tm_matrix: list[float],
+    font_resource: Optional[DictionaryObject],
+    font: Font,
+    text_operands: str,
+    font_size: float,
+    rtl_dir: bool,
+    visitor_text: Optional[Callable[[Any, Any, Any, Any, Any], None]]
+) -> tuple[str, bool, str]:
+    """
+    Add the characters of ``text_operands`` to ``text`` in display order.
+
+    Returns:
+        A tuple containing the current text run, its direction, and any text runs completed
+        because of a direction change. The completed runs precede the current run in display order.
+
+    """
+    # "\u0590 - \u08FF \uFB50 - \uFDFF"
+    completed_text: list[str] = []
+    neutral_cache: dict[str, bool] = {}
+    rtl_cache: dict[str, bool] = {}
+
+    def clear_character_caches() -> None:
+        neutral_cache.clear()
+        rtl_cache.clear()
+
+    for raw_character in text_operands:
+        x = font.character_map.get(raw_character, raw_character)
+        # Test whether x is a sequence of bytes; ex: habibi.pdf
+        if len(x) == 1:
+            if x not in neutral_cache:
+                neutral_cache[x] = is_char_neutral(x, CUSTOM_RTL_SPECIAL_CHARS)
+            if neutral_cache[x]:
+                # Cases where the current inserting order is kept
+                text = x + text if rtl_dir else text + x
+            else:
+                if x not in rtl_cache:
+                    rtl_cache[x] = is_char_rtl(x, CUSTOM_RTL_MIN, CUSTOM_RTL_MAX)
+                if rtl_cache[x]:
+                    # Right-to-left characters
+                    if not rtl_dir:
+                        rtl_dir = True
+                        if visitor_text is not None:
+                            visitor_text(text, cm_matrix, tm_matrix, font_resource, font_size)
+                            clear_character_caches()
+                        completed_text.append(text)
+                        text = ""
+                    text = x + text
+                else:
+                    # Left-to-right characters
+                    if rtl_dir:
+                        rtl_dir = False
+                        if visitor_text is not None:
+                            visitor_text(text, cm_matrix, tm_matrix, font_resource, font_size)
+                            clear_character_caches()
+                        completed_text.append(text)
+                        text = ""
+                    text = text + x
+        else:
+            # Treat a sequence of bytes as a neutral character.
+            text = x + text if rtl_dir else text + x
+    return text, rtl_dir, "".join(completed_text)

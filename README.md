@@ -52,6 +52,7 @@ Currently available Skills:
 |---|---|---|
 | [norman-fig2ppt](norman-fig2ppt/) | 论文图片转为可编辑 PowerPoint 图形 / Convert paper figures into editable PowerPoint shapes | [中英说明 / Bilingual guide](norman-fig2ppt/README.md) |
 | [norman-paper-reading](norman-paper-reading/) · v1.4.0 | 研究过程重建、批判性证据审查、逐图精读与科研创新规划 / Research reconstruction, critical evidence evaluation, figure-by-figure analysis, and research innovation planning | [中英说明 / Bilingual guide](norman-paper-reading/README.md) |
+| [norman-paper2ppt](norman-paper2ppt/) · v1.0.0 | 学术论文转中文研究汇报 PPT，含原文图、可选讲稿及可编辑版本 / Turn academic papers into Chinese research presentations with original figures, optional speaker notes and editable output | [中英说明 / Bilingual guide](norman-paper2ppt/README.md) |
 
 ### 下载与安装 | Download and Install
 

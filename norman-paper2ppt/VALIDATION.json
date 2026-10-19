@@ -1,0 +1,243 @@
+{
+  "packaging_date": "2026-10-18",
+  "windows_functional_checks": [
+    {
+      "arguments": [
+        "version"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\"name\": \"norman-paper2ppt\", \"version\": \"1.0.0\", \"python\": \"3.12.14\", \"platform\": \"Windows\", \"architecture\": \"AMD64\", \"author_source_shipped\": false}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "--help"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "norman-paper2ppt: version | inspect-pdf | validate | audit | notes | prepare-image-batch | editable-vba | powerpoint\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "inspect-pdf",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "usage: norman-paper2ppt.exe inspect-pdf [-h] [--scale SCALE] pdf out\n\npositional arguments:\n  pdf\n  out\n\noptions:\n  -h, --help     show this help message and exit\n  --scale SCALE\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "validate",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "usage: norman-paper2ppt.exe validate [-h] [--report REPORT] [--strict-hd]\n                                     manifest\n\npositional arguments:\n  manifest\n\noptions:\n  -h, --help       show this help message and exit\n  --report REPORT\n  --strict-hd      Fail for below-1920x1080 images instead of warning\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "audit",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "usage: norman-paper2ppt.exe audit [-h] --kind {image,editable}\n                                  [--report REPORT]\n                                  pptx manifest\n\npositional arguments:\n  pptx\n  manifest\n\noptions:\n  -h, --help            show this help message and exit\n  --kind {image,editable}\n  --report REPORT\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "notes",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "usage: norman-paper2ppt.exe notes [-h] manifest out\n\npositional arguments:\n  manifest\n  out\n\noptions:\n  -h, --help  show this help message and exit\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "prepare-image-batch",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "usage: norman-paper2ppt.exe [-h] [--style STYLE] manifest\n\nCompile all approved page briefs into prompts and real image-tool arguments.\nThis script does not call an image model or claim that any image was\ngenerated.\n\npositional arguments:\n  manifest\n\noptions:\n  -h, --help     show this help message and exit\n  --style STYLE\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "editable-vba",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "usage: norman-paper2ppt.exe [-h] manifest slide out\n\nCompile measured text/image objects to a VBA module for norman-fig2ppt run.\nDoes not interpret images, OCR text, invoke the engine, or assert\nreconstruction success.\n\npositional arguments:\n  manifest\n  slide\n  out\n\noptions:\n  -h, --help  show this help message and exit\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "inspect-pdf",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\input.pdf",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\source"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\n  \"source\": \"C:\\\\Users\\\\zheng\\\\Documents\\\\ChatGPT\\\\20261017 norman-paper2ppt\\\\.build-paper2ppt\\\\验证 中文路径 1792290387220291800\\\\input.pdf\",\n  \"pages\": 1,\n  \"empty_text_pages\": [\n    1\n  ],\n  \"ocr_performed\": false,\n  \"note\": \"Read every page and figure; empty pages require visual reading or real OCR.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "prepare-image-batch",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\deck.json"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\n  \"ok\": true,\n  \"jobs\": 5,\n  \"batch\": \"C:\\\\Users\\\\zheng\\\\Documents\\\\ChatGPT\\\\20261017 norman-paper2ppt\\\\.build-paper2ppt\\\\验证 中文路径 1792290387220291800\\\\image-batch.json\",\n  \"prompt_files\": 5,\n  \"image_generation_executed\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "validate",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\deck.json",
+        "--strict-hd"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"warnings\": [],\n  \"slides\": 5,\n  \"note\": \"Checks do not establish image-generation provenance, cover screenshot authenticity/position in final pixels, visual beauty, watermark pixels, or scientific accuracy.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "powerpoint",
+        "-Mode",
+        "images",
+        "-Manifest",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\deck.json",
+        "-Output",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\image.pptx",
+        "-PreviewDir",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\previews"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\n  \"ok\": true,\n  \"saved\": true,\n  \"output\": \"C:\\\\Users\\\\zheng\\\\Documents\\\\ChatGPT\\\\20261017 norman-paper2ppt\\\\.build-paper2ppt\\\\验证 中文路径 1792290387220291800\\\\image.pptx\",\n  \"slides\": 5,\n  \"rendered\": 5,\n  \"preview_dir\": \"C:\\\\Users\\\\zheng\\\\Documents\\\\ChatGPT\\\\20261017 norman-paper2ppt\\\\.build-paper2ppt\\\\验证 中文路径 1792290387220291800\\\\previews\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "audit",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\image.pptx",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\deck.json",
+        "--kind",
+        "image"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"slides\": [\n    {\n      \"slide\": 1,\n      \"pictures\": 1,\n      \"native_text_objects\": 0,\n      \"notes_han\": 0\n    },\n    {\n      \"slide\": 2,\n      \"pictures\": 1,\n      \"native_text_objects\": 0,\n      \"notes_han\": 0\n    },\n    {\n      \"slide\": 3,\n      \"pictures\": 1,\n      \"native_text_objects\": 0,\n      \"notes_han\": 0\n    },\n    {\n      \"slide\": 4,\n      \"pictures\": 1,\n      \"native_text_objects\": 0,\n      \"notes_han\": 0\n    },\n    {\n      \"slide\": 5,\n      \"pictures\": 1,\n      \"native_text_objects\": 0,\n      \"notes_han\": 0\n    }\n  ],\n  \"visual_review_required\": true,\n  \"scientific_review_required\": true,\n  \"watermark_pixels_verified\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "notes",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\deck.json",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\no-notes.txt"
+      ],
+      "returncode": 1,
+      "expected": 1,
+      "passed": true,
+      "stdout": "{\"ok\": false, \"error\": \"User did not request narration\"}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "notes",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\notes.json",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\notes.txt"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\n  \"ok\": true,\n  \"file\": \"C:\\\\Users\\\\zheng\\\\Documents\\\\ChatGPT\\\\20261017 norman-paper2ppt\\\\.build-paper2ppt\\\\验证 中文路径 1792290387220291800\\\\notes.txt\",\n  \"han_characters\": 20\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "editable-vba",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\objects.json",
+        "1",
+        "C:\\Users\\zheng\\Documents\\ChatGPT\\20261017 norman-paper2ppt\\.build-paper2ppt\\验证 中文路径 1792290387220291800\\Build.bas"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\n  \"ok\": true,\n  \"bas\": \"C:\\\\Users\\\\zheng\\\\Documents\\\\ChatGPT\\\\20261017 norman-paper2ppt\\\\.build-paper2ppt\\\\验证 中文路径 1792290387220291800\\\\Build.bas\",\n  \"objects\": 1,\n  \"engine_executed\": false,\n  \"saved_pptx\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "powerpoint",
+        "-Mode",
+        "probe"
+      ],
+      "returncode": 0,
+      "expected": 0,
+      "passed": true,
+      "stdout": "{\n  \"powerpoint_registered\": true,\n  \"automation_tested\": false\n}\n",
+      "stderr": ""
+    }
+  ],
+  "shared_bytecode_on_matching_windows_cpython": {
+    "passed": true
+  },
+  "macos_static_checks": {
+    "arm64": {
+      "interpreter_macho_architecture_correct": true,
+      "pdfium_macho_architecture_correct": true,
+      "interpreter_sha256": "b0b70ed80161cb21e2f3b446b86112d9ad14f9c01df57ee9c43d9c59d5267744",
+      "pdfium_sha256": "8de224826cb9784c8f8540ba36a174dd710f1f4f59e72211b7b882a2618aa401",
+      "native_execution": "not performed: Windows build host"
+    },
+    "x86_64": {
+      "interpreter_macho_architecture_correct": true,
+      "pdfium_macho_architecture_correct": true,
+      "interpreter_sha256": "2a671ac24f77b6a730d124621ef77d19f9bb7d9b662ac9b14ac0d22e7cae2b4b",
+      "pdfium_sha256": "f8f4e387fb58f16ea24031e66744d8c3e9ae3e03b73e9c13d466a55ea0b5005f",
+      "native_execution": "not performed: Windows build host"
+    }
+  },
+  "macos_native_execution": false,
+  "macos_native_execution_reason": "Windows build host; cannot execute Mach-O binaries",
+  "source_preserved": true,
+  "author_standalone_sources_in_package": [],
+  "full_paper_to_slide_ai_workflow_executed": false,
+  "notes": "Packaging validation only. No actual image-generation requests made.",
+  "skill_schema_validation": {
+    "passed": true,
+    "stdout": "Skill is valid!\n"
+  },
+  "source_script_fingerprints_unchanged": true,
+  "documentation_revision": {
+    "date": "2026-10-18",
+    "skill_instruction_language": "English; exact Chinese schema literals and watermark preserved",
+    "readme_format": "English first, Chinese second; aligned with norman-paper-reading",
+    "binaries_changed": false
+  }
+}

@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+TASK_BIN_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+if [ "$(uname -s)" != "Darwin" ]; then
+    printf '%s\n' '{"status":"unsupported_platform","detail":"On Windows use bin/windows-x64/norman-engine.exe"}' >&2
+    exit 2
+fi
+TASK_MACHINE=$(uname -m)
+if [ "$(/usr/sbin/sysctl -n hw.optional.arm64 2>/dev/null || true)" = "1" ]; then
+    TASK_MACHINE=arm64
+fi
+case "$TASK_MACHINE" in
+    arm64|aarch64) TASK_ARCH=arm64 ;;
+    x86_64) TASK_ARCH=x86_64 ;;
+    *) printf '%s\n' '{"status":"unsupported_architecture"}' >&2; exit 2 ;;
+esac
+TASK_PYTHON="$TASK_BIN_DIR/macos-$TASK_ARCH/runtime/bin/python3.12"
+TASK_ENGINE="$TASK_BIN_DIR/macos-common/norman-engine.pyz"
+if [ ! -f "$TASK_PYTHON" ] || [ ! -f "$TASK_ENGINE" ]; then
+    printf '%s\n' '{"status":"incomplete_package","detail":"Keep the complete norman-fig2ppt folder"}' >&2
+    exit 2
+fi
+# Some transfers from NTFS lose executable mode. Repair only our interpreter.
+if [ ! -x "$TASK_PYTHON" ]; then
+    chmod u+x "$TASK_PYTHON"
+fi
+exec "$TASK_PYTHON" -I -B "$TASK_ENGINE" "$@"
