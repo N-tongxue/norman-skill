@@ -1,0 +1,124 @@
+{
+  "name": "norman-paper-reading",
+  "version": "1.4.0",
+  "packaging_date": "2026-10-13",
+  "pymupdf": "1.28.2",
+  "markdown": "3.10.3",
+  "python_installation_required": false,
+  "downloads_at_first_run": false,
+  "ocr_engine_included": false,
+  "watermark": "Required Chinese then English; identical to source skill",
+  "author_source_shipped": false,
+  "source_script_hashes": {
+    "build_reader.py": "6a9ee73d1482ae7408285e8f77174a098ba23abc414084a4f23f4b53d0adcfb0",
+    "extract_paper.py": "9b46ecedbff9186cce6e74dcf371b3ad5ad28eed35f7868b62c43c2bac09a7a2",
+    "paper_utils.py": "0daec17940831b862a245006d57a20397d05951fe7b16e8ee192c1ccf64c5bc1",
+    "render_pages.py": "1d19a5e97cac0299f0c060100ef1343795c21bd61757c17047620c41b20c1b83",
+    "validate_note.py": "31dd058a6f490128523263eb31378d0249335bd350d3c73e3c92413187eb1e57"
+  },
+  "platforms": [
+    "Windows x64",
+    "macOS Apple Silicon",
+    "macOS Intel"
+  ],
+  "single_skill_folder": true,
+  "platform_routing": "SKILL.md selects Windows/Mac; Mac launcher detects native architecture",
+  "runtime": {
+    "windows": {
+      "name": "norman-paper-reading",
+      "version": "1.4.0",
+      "packaging_date": "2026-10-13",
+      "pymupdf": "1.28.2",
+      "markdown": "3.10.3",
+      "python_installation_required": false,
+      "downloads_at_first_run": false,
+      "ocr_engine_included": false,
+      "watermark": "Required Chinese then English; identical to source skill",
+      "author_source_shipped": false,
+      "source_script_hashes": {
+        "build_reader.py": "6a9ee73d1482ae7408285e8f77174a098ba23abc414084a4f23f4b53d0adcfb0",
+        "extract_paper.py": "9b46ecedbff9186cce6e74dcf371b3ad5ad28eed35f7868b62c43c2bac09a7a2",
+        "paper_utils.py": "0daec17940831b862a245006d57a20397d05951fe7b16e8ee192c1ccf64c5bc1",
+        "render_pages.py": "1d19a5e97cac0299f0c060100ef1343795c21bd61757c17047620c41b20c1b83",
+        "validate_note.py": "31dd058a6f490128523263eb31378d0249335bd350d3c73e3c92413187eb1e57"
+      },
+      "platforms": [
+        "Windows x64"
+      ],
+      "python": "3.12.14",
+      "engine": "PyInstaller standalone single EXE",
+      "runtime_executable": "bin/windows-x64/norman-reader.exe",
+      "unneeded_components_excluded": [
+        "Pillow",
+        "NumPy",
+        "Tkinter",
+        "Matplotlib",
+        "pandas",
+        "PyYAML",
+        "asyncio",
+        "urllib.request",
+        "OpenSSL TLS modules"
+      ],
+      "sha256_implementation": "CPython builtin _sha2; parity verified against original source fingerprint"
+    },
+    "macos": {
+      "name": "norman-paper-reading",
+      "version": "1.4.0",
+      "packaging_date": "2026-10-13",
+      "pymupdf": "1.28.2",
+      "markdown": "3.10.3",
+      "python_installation_required": false,
+      "downloads_at_first_run": false,
+      "ocr_engine_included": false,
+      "watermark": "Required Chinese then English; identical to source skill",
+      "author_source_shipped": false,
+      "source_script_hashes": {
+        "build_reader.py": "6a9ee73d1482ae7408285e8f77174a098ba23abc414084a4f23f4b53d0adcfb0",
+        "extract_paper.py": "9b46ecedbff9186cce6e74dcf371b3ad5ad28eed35f7868b62c43c2bac09a7a2",
+        "paper_utils.py": "0daec17940831b862a245006d57a20397d05951fe7b16e8ee192c1ccf64c5bc1",
+        "render_pages.py": "1d19a5e97cac0299f0c060100ef1343795c21bd61757c17047620c41b20c1b83",
+        "validate_note.py": "31dd058a6f490128523263eb31378d0249335bd350d3c73e3c92413187eb1e57"
+      },
+      "platforms": [
+        "macOS Apple Silicon",
+        "macOS Intel"
+      ],
+      "minimum_macos": {
+        "arm64": "11.0.0",
+        "x86_64": "10.15.0"
+      },
+      "python": "3.12.15 bundled CPython native interpreters",
+      "author_bytecode_compiler": "Windows CPython 3.12.14; matching 3.12 bytecode magic",
+      "engine": "Shared compiled Python archive and stdlib; architecture-specific native PDF libraries",
+      "runtime_executable": "/bin/sh bin/norman-reader",
+      "native_binary_bytes_unchanged": true,
+      "unneeded_components_excluded": [
+        "libpython shared library (interpreter is self-contained)",
+        "Pillow",
+        "NumPy",
+        "lxml",
+        "pydantic",
+        "SciPy",
+        "pip",
+        "tests",
+        "GUI modules"
+      ],
+      "wheel_provenance": [
+        {
+          "arch": "arm64",
+          "filename": "pymupdf-1.28.2-cp310-abi3-macosx_11_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/fa/01/3591f781b417b382a8487a2356e927acfe858b1043bab0ec47f6805bb109/pymupdf-1.28.2-cp310-abi3-macosx_11_0_arm64.whl",
+          "sha256": "7113846b35dbf0a033f088e4f4fb543dabeb4b0b12c112966a1ca1ee2d5eacae",
+          "python_interpreter_sha256": "b0b70ed80161cb21e2f3b446b86112d9ad14f9c01df57ee9c43d9c59d5267744"
+        },
+        {
+          "arch": "x86_64",
+          "filename": "pymupdf-1.28.2-cp310-abi3-macosx_10_15_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/b4/51/550c9a75c4ff3245cb4ecb7bb95cbe2ab7374230b8e2b7a1f7259444150b/pymupdf-1.28.2-cp310-abi3-macosx_10_15_x86_64.whl",
+          "sha256": "5fc315b425ff1f7afdd1ea2f348205cb19b806767daae7ce4d64115799c2bae1",
+          "python_interpreter_sha256": "2a671ac24f77b6a730d124621ef77d19f9bb7d9b662ac9b14ac0d22e7cae2b4b"
+        }
+      ]
+    }
+  }
+}

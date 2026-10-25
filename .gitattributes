@@ -1,0 +1,4 @@
+# Preserve packaged runtime bytes and their SHA256 checksums on every platform.
+/norman-paper-reading/** -text
+/norman-paper2ppt/** -text
+/norman-humanize/** -text
