@@ -1,199 +1,85 @@
-# norman-fig2ppt
+# Norman Fig2PPT 使用说明 / User Guide
 
-**Turn scientific figures into editable PowerPoint objects.**  
-**把科研图片重建为可编辑的 PowerPoint 对象。**
+## 技能用途 / Purpose
 
-A Codex skill for scientific figures, mechanism diagrams, flowcharts, and screenshots, with bundled local engines for Windows and Mac.  
-面向科研图、机制图、流程图与截图的 Codex 技能，内置 Windows 与 Mac 本地运行引擎。
+Norman Fig2PPT 将科研图、机制图、流程图和截图重建为可编辑的 PowerPoint 对象。
+Norman Fig2PPT rebuilds scientific figures, mechanism diagrams, flowcharts, and screenshots as editable PowerPoint objects.
 
-**Windows x64 · macOS Apple Silicon · macOS Intel**  
-**Quick / Advanced · English by default · No separate Python installation**
+它会分别处理文字、边框、箭头、连接线和简单形状，并将照片或复杂纹理作为局部图片保留。
+It handles text, borders, arrows, connectors, and simple shapes separately while retaining photographs or complex textures as local image crops.
 
-[English](#english) · [简体中文](#简体中文)
+## 在 Codex 中使用 / Use in Codex
 
-## English
+上传原图，说明希望保留的文字语言、页面尺寸和输出位置，并在请求中写出技能名。
+Upload the source image, specify the text language, slide size, and output location you want, and name the skill in your request.
 
-### What you can do
+例如，输入“使用 `$norman-fig2ppt` 的 Quick 模式，把这张机制图重建为可编辑 PPTX”。
+For example, ask “Use `$norman-fig2ppt` in Quick mode to rebuild this mechanism diagram as an editable PPTX.”
 
-Rebuild the structure of an existing figure so you can edit its labels, boxes, arrows, and simple graphics in PowerPoint. Photographs, textures, and complex regions can remain as local image crops. The aim is a usable editable figure that preserves the source layout.
+| 模式 / Mode | 中文说明 | English explanation |
+| --- | --- | --- |
+| Quick | 快速重建主体布局、文字、形状和连线。 | Quickly rebuilds the main layout, text, shapes, and connections. |
+| Advanced | 逐个元素记录位置和样式，并对实际渲染结果进行细致比对。 | Records each element’s position and style and compares an actual render in detail. |
 
-- Editable text, shapes, and connections; the Mac native PPTX workflow also supports editable Bézier paths.
-- **Quick mode** for the main structure, text, and arrows, with local crops for complex regions.
-- **Advanced mode** for measured element reconstruction, a manifest, skeleton checks, and visual refinement when a renderer is available.
-- Supporting VBA, crop assets, manifests, and diagnostic records as applicable to the selected workflow.
+如果请求中没有指定模式，技能会请你在 Quick 和 Advanced 之间选择。
+If the request does not specify a mode, the skill asks you to choose between Quick and Advanced.
 
-The skill's instructions and prompts are in English. Source-image text is preserved unless you ask for translation; you can still request a different response or output language.
+## 工作流程 / Workflow
 
-### Install
+第一步，提供清晰原图，并指出必须保持准确的标签、数字、图例和连接关系。
+First, provide a clear source image and identify labels, numbers, legends, and connections that must remain accurate.
 
-1. Extract the package and keep the complete `norman-fig2ppt` folder, including `bin`, `agents`, and `references`.
-2. Copy that folder to the user skills directory recognized by your Codex version:
+第二步，技能识别可编辑元素与需要裁切保留的图片区域，并把原图坐标映射到幻灯片画布。
+Second, the skill identifies editable elements and image regions to retain as crops, then maps source coordinates onto the slide canvas.
 
-   | Platform | Current documented user location | Existing installations using `.codex/skills` |
-   |---|---|---|
-   | Windows | `%USERPROFILE%\.agents\skills\norman-fig2ppt` | `%USERPROFILE%\.codex\skills\norman-fig2ppt` |
-   | macOS | `~/.agents/skills/norman-fig2ppt` | `~/.codex/skills/norman-fig2ppt` |
+第三步，技能生成可编辑 PPTX，并在适用的流程中附带 PowerPoint VBA 模块和元素记录。
+Third, the skill generates an editable PPTX and, where applicable, a PowerPoint VBA module and an element record.
 
-3. Keep one active copy. When replacing an older version, move the old folder outside the skills directory first, then copy the new folder rather than merging them.
-4. If the skill does not appear, restart Codex.
+第四步，查看输出中的文字、位置、颜色、连线和局部图片，并反馈需要调整的元素。
+Fourth, review the output’s text, positions, colors, connections, and image crops, then point out any elements to adjust.
 
-The current documented user location is `~/.agents/skills`; this local setup has also used `.codex/skills`. See the [official Codex skills guide](https://learn.chatgpt.com/docs/build-skills). Copying this distribution does not automatically install or update an active skill.
+## 本地命令 / Local commands
 
-### Start with an image
+复制完整技能文件夹后，在 Windows PowerShell 中用以下命令查看内置指南和资源。
+After copying the complete skill folder, use the following commands in Windows PowerShell to read its bundled guide and resources.
 
-Attach an image in Codex and enter:
-
-> Use $norman-fig2ppt in Advanced mode to rebuild this image as an editable PowerPoint. Preserve the original text and layout, and save the result to my desktop.
-
-For a faster first version:
-
-> Use $norman-fig2ppt in Quick mode to rebuild this image as an editable PowerPoint.
-
-If you leave the mode unspecified, the skill asks you to choose before starting. It does not ask again when your request already specifies a mode.
-
-### Choose a mode
-
-| | Quick | Advanced |
-|---|---|---|
-| Best for | A faster editable first version | A closer reconstruction of a detailed figure |
-| Reconstruction | Main structure, text, arrows, and local crops | Measured objects, styles, stacking order, and connections |
-| Verification | Quick static checks | Manifest and skeleton checks, plus rendered comparison when available |
-| Refinement | Focus on essential elements | Usually up to 6 rounds; at most 9 if improvement continues |
-
-Both modes use editable objects where practical. Complex image regions may remain raster crops, and unclear source text is flagged for review.
-
-### Platform requirements
-
-| Platform | Default workflow | Requirements |
-|---|---|---|
-| Windows x64 | Generate VBA and run it in local PowerPoint | PowerPoint installed; macro execution permitted by its existing security settings |
-| macOS Apple Silicon / Intel | Generate native editable PPTX from a measured scene | macOS 14 or later for the bundled dependencies; Office is not required for generation |
-
-The Mac launcher selects the matching architecture automatically. The package includes its runtime dependencies; you do not need to install Python, a compiler, or MCP. No dependencies are downloaded on first engine launch.
-
-On Mac, PowerPoint or another verified local renderer is needed to view/export previews for visual comparison. The engine itself does not create preview PNGs. If you specifically need VBA execution on Mac, first import the task macro into a `.pptm` template and provide that template. The Mac runner executes an existing macro rather than importing `.bas` files, and it does not change permissions or macro security settings.
-
-### What you receive
-
-Depending on the platform and mode, delivery includes the editable `.pptx`, companion `.bas`, retained crops, an element manifest, and available diagnostic previews or visual verification records.
-
-The Mac native `build` command outputs:
-
-```text
-output/
-├── NormanFigure.pptx
-├── NormanFigure.bas
-├── manifest.json
-├── draw-order.json
-├── report.json
-└── assets/              # When local crops are needed
+```powershell
+& "<skill-root>/norman-fig2ppt.exe" guide
+& "<skill-root>/norman-fig2ppt.exe" list
+& "<skill-root>/norman-fig2ppt.exe" read references/scene-format.md
 ```
 
-Keep the Mac-generated `.bas` with its companion PPTX: it depends on that presentation rather than independently rebuilding the geometry. Macro execution, saving, and rendering are reported separately. A static check alone does not prove that a macro ran or that the finished slide was visually verified.
+| 命令 / Command | 中文用途 | English use |
+| --- | --- | --- |
+| `probe` | 查看本机可用的重建路径。 | Reports the available reconstruction path. |
+| `map` | 计算原图与幻灯片之间的缩放和边距。 | Calculates scaling and margins between the image and slide. |
+| `crop` | 提取需要保留的局部图片。 | Extracts image regions to retain. |
+| `check` | 检查 VBA 模块。 | Checks a VBA module. |
+| `diff` | 比较原图与渲染图。 | Compares the source with a rendered slide. |
+| `build` | 读取场景 JSON 并生成原生可编辑 PPTX。 | Reads scene JSON and generates a native editable PPTX. |
 
-### How it works and validation status
+使用 `build` 之前，先读取 `references/scene-format.md`。
+Read `references/scene-format.md` before using `build`.
 
-Codex interprets your image and prepares the geometry, text, and reconstruction data. The local engine maps coordinates, crops assets, checks VBA, compares images, and runs the supported output workflow. It is not a standalone automatic image-recognition application.
-
-The package itself does not upload your images or connect to an author-operated backend. Codex still operates under its normal network requirements and data settings.
-
-Windows behavioral checks have passed. Both Mac architectures have undergone archive, hash, architecture, and library checks; the Mac author bytecode and native PPTX generation were tested on Windows. **Execution on a real Mac, Mac PowerPoint automation, and Gatekeeper first launch have not been verified; the package is not Apple-notarized.** See [PACKAGE-INFO.json](PACKAGE-INFO.json) and [VALIDATION.json](VALIDATION.json) for the recorded scope.
-
-If macOS blocks first launch, follow its system controls to allow the application; do not disable global Gatekeeper. Keep the distribution intact when extracting or copying. The skill invokes the launcher through `/bin/sh`; if executable permissions were lost during transfer, the launcher repairs only its bundled interpreter's permission.
-
-### Author and licenses
-
-Created by **N Tongxue** on Xiaohongshu (**N同学**), and **Naixin de N Tongxue** on Douyin / Bilibili (**耐心的N同学**).
-
-## 简体中文
-
-### 能做什么
-
-将现有图片中的文字、框线、箭头和简单图形重建为 PowerPoint 对象，方便后续修改内容、调整布局和重新配色。照片、纹理与复杂区域可保留为局部裁片，在尽量还原原图的同时提供实用的可编辑结果。
-
-- 支持可编辑文字、图形与连线；Mac 原生 PPTX 路径还支持可编辑 Bézier 曲线。
-- **Quick（快速）模式**：重建主要结构、文字与箭头，复杂区域保留局部裁片。
-- **Advanced（高级）模式**：按测量数据逐元素重建，记录清单、检查骨架，并在有可用渲染器时进行视觉对比与细化。
-- 按所选流程交付配套 VBA、裁片素材、元素清单和诊断记录。
-
-技能指令与提示统一使用英文，默认以英文沟通；图片中的原始文字保持原文，除非你明确要求翻译。你仍可指定其他回复语言或输出语言。
-
-### 安装方法
-
-1. 解压安装包，保留完整的 `norman-fig2ppt` 文件夹，包括 `bin`、`agents` 和 `references`。
-2. 将整个文件夹复制到当前 Codex 版本识别的用户级技能目录：
-
-   | 平台 | 当前官方文档的用户级位置 | 使用 `.codex/skills` 的现有安装 |
-   |---|---|---|
-   | Windows | `%USERPROFILE%\.agents\skills\norman-fig2ppt` | `%USERPROFILE%\.codex\skills\norman-fig2ppt` |
-   | macOS | `~/.agents/skills/norman-fig2ppt` | `~/.codex/skills/norman-fig2ppt` |
-
-3. 只保留一个活动副本。更新旧版本时，先把旧目录移到技能目录之外备份，再放入新目录，避免直接合并留下旧文件。
-4. 如果技能没有显示，重启 Codex。
-
-当前官方文档使用 `~/.agents/skills`，本机现有环境也曾使用 `.codex/skills`。详情见 [Codex 官方技能说明](https://learn.chatgpt.com/docs/build-skills)。修改或复制发布包不会自动安装或更新活动技能。
-
-### 从一张图片开始
-
-在 Codex 中附上图片，然后输入：
-
-> 使用 $norman-fig2ppt 的 Advanced 高级模式，把这张图重建为可编辑 PowerPoint，保留原始文字和布局，保存到桌面。
-
-如果希望先快速得到可编辑初稿：
-
-> 使用 $norman-fig2ppt 的 Quick 快速模式，把这张图重建为可编辑 PowerPoint。
-
-没有指定模式时，技能会先询问并等待你的选择；已经指定模式时直接开始，不会重复询问。
-
-### 两种模式怎么选
-
-| | Quick 快速模式 | Advanced 高级模式 |
-|---|---|---|
-| 适合场景 | 尽快获得可编辑初稿 | 更接近原图的细致重建 |
-| 重建内容 | 主要结构、文字、箭头与局部裁片 | 测量后的对象、样式、层级与连接关系 |
-| 检查方式 | 快速静态检查 | 元素清单与骨架检查；有可用渲染器时进行渲染对比 |
-| 细化轮次 | 优先完成核心元素 | 通常最多 6 轮；持续改善时最多 9 轮 |
-
-两种模式都会尽量使用可编辑对象。复杂图像区域可能仍以位图裁片保留；无法可靠识别的文字会标明，便于你核对。
-
-### 平台与运行要求
-
-| 平台 | 默认流程 | 要求 |
-|---|---|---|
-| Windows x64 | 生成 VBA 并在本机 PowerPoint 中执行 | 已安装 PowerPoint，现有安全设置允许宏执行 |
-| macOS Apple Silicon / Intel | 根据测量后的场景数据直接生成原生可编辑 PPTX | 内置依赖要求 macOS 14 或更新；生成文件无需 Office |
-
-Mac 启动器自动选择对应架构。包内已包含运行组件，无需另装 Python、编译器或 MCP；引擎首次启动不会下载依赖。
-
-Mac 上的预览导出与视觉对比需要 PowerPoint 或其他已验证的本地渲染器，引擎本身不生成预览 PNG。如明确需要在 Mac 执行 VBA，请先把任务宏导入 `.pptm` 模板并提供该文件。Mac 运行器执行模板已有的宏，不自动导入 `.bas`，也不会更改权限或宏安全设置。
-
-### 交付内容
-
-根据平台与模式，交付可编辑 `.pptx`、配套 `.bas`、保留的局部裁片、元素清单，以及实际生成的诊断预览或视觉核对记录。
-
-Mac 原生 `build` 命令输出：
-
-```text
-output/
-├── NormanFigure.pptx
-├── NormanFigure.bas
-├── manifest.json
-├── draw-order.json
-├── report.json
-└── assets/              # 需要局部裁片时生成
+```powershell
+& "<skill-root>/norman-fig2ppt.exe" probe
+& "<skill-root>/norman-fig2ppt.exe" map <image-width-px> <image-height-px> <canvas-width-pt> <canvas-height-pt> --pretty
+& "<skill-root>/norman-fig2ppt.exe" build "<scene.json>" --source-image "<source-image>" --output-dir "<new-output-directory>" --pretty
 ```
 
-Mac 生成的 `.bas` 依赖同次生成的 PPTX，请一起保留；它不是独立重建全部几何的脚本。宏执行、文件保存和实际渲染会分别报告，静态检查通过不能代替宏运行成功或视觉验收。
+把 `<skill-root>` 换成技能文件夹路径，并用 `命令 --help` 查看该命令的完整参数。
+Replace `<skill-root>` with the skill folder path, and use `command --help` to see all arguments for a command.
 
-### 工作方式与验证状态
+macOS 和 Linux 用户选择与系统及处理器匹配的同名可执行文件，再运行相同的子命令。
+On macOS and Linux, choose the executable that matches the operating system and processor, then run the same subcommands.
 
-Codex 负责理解图片，并准备几何、文字与重建数据；本地引擎负责坐标映射、素材裁切、VBA 检查、图像对比和对应的输出流程。它并不是脱离 Codex 的自动识图软件。
+## 输出内容 / Outputs
 
-本包本身不上传你的图片，也不连接作者后台；Codex 仍按其正常联网要求与数据设置工作。
+主要交付物是可编辑 PPTX，复杂图像区域可作为普通图片对象保留。
+The main deliverable is an editable PPTX, with complex image regions retained as ordinary image objects where needed.
 
-Windows 行为检查已通过。Mac 两种架构已完成归档、哈希、架构与运行库检查；Mac 作者字节码和原生 PPTX 生成已在 Windows 上验证。**真实 Mac 执行、Mac PowerPoint 自动化和 Gatekeeper 首次启动尚未验证，本包也未经过 Apple 公证。** 具体范围见 [PACKAGE-INFO.json](PACKAGE-INFO.json) 与 [VALIDATION.json](VALIDATION.json)。
-
-如果 macOS 首次启动时阻止程序，请通过系统提供的控制项允许打开，不要关闭全局 Gatekeeper。解压和复制时保持目录完整。技能通过 `/bin/sh` 调用启动器；如传输导致可执行权限丢失，启动器只修复包内解释器的权限。
+Advanced 模式还可附带元素清单、裁片、对照图和视觉调整记录。
+Advanced mode can also include an element manifest, crops, comparison images, and a visual refinement record.
 
 ### 作者与许可
 
