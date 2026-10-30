@@ -1,90 +1,83 @@
-# Norman Paper2PPT 使用说明 / User Guide
+# norman-paper2ppt
 
-## 技能用途 / Purpose
+**English** · [中文说明](#中文说明)
 
-Norman Paper2PPT 将科研论文 PDF 制作成适合中文科研汇报的 PowerPoint 演示文稿。
-Norman Paper2PPT turns a research paper PDF into a PowerPoint presentation for a Chinese research talk.
+Created and maintained by **N同学**. Xiaohongshu: **N同学**. Douyin / Bilibili: **耐心的N同学**.
 
-它围绕原论文的研究问题、方法、核心结果和启示组织内容，并把论文原始图表放入幻灯片。
-It organizes slides around the paper’s question, methods, core results, and implications and places original paper figures on the slides.
+Turn academic paper PDFs into evidence-grounded Chinese research presentations. Read the full paper, organize its research story, preserve original scientific figures, prepare all slide prompts together, and assemble a 16:9 PPTX. The image version is always included; slide-by-slide speaker notes and editable text/image output are optional. Version **1.1.0** packages the full workflow, references, helpers, Fig2PPT and Python runtime inside five native executables, matching the single-file distribution style of `norman-humanize`. No separate Python installation or first-run dependency download is required.
 
-## 在 Codex 中使用 / Use in Codex
+## Installation and invocation
 
-上传论文 PDF，并输入“使用 `$norman-paper2ppt` 为这篇论文制作科研汇报 PPT”。
-Upload the paper PDF and ask “Use `$norman-paper2ppt` to make a research presentation from this paper.”
+Place the entire `norman-paper2ppt` folder in a host skill directory supporting `SKILL.md`, or explicitly supply its folder path in a conversation. This package does not automatically install itself globally.
 
-| 模式 / Mode | 中文说明 | English explanation | 时长与页数 / Duration and slides |
-| --- | --- | --- | --- |
-| A | 简要概览。 | Brief overview. | 约 5 分钟，5–7 页。 / About 5 minutes, 5–7 slides. |
-| B | 标准解读。 | Standard reading. | 约 10 分钟，8–12 页。 / About 10 minutes, 8–12 slides. |
-| C | 深度解读。 | Deep reading. | 约 15 分钟，12–16 页。 / About 15 minutes, 12–16 slides. |
-
-随后选择是否加入逐页讲稿，以及是否额外制作可编辑版本。
-Then choose whether to include slide-by-slide speaker notes and whether to create an additional editable version.
-
-如果已经在请求中写明模式、讲稿和可编辑版本，技能会直接使用这些选择。
-If your request already states the mode, notes, and editable output choice, the skill uses those selections directly.
-
-例如，输入“使用 `$norman-paper2ppt` 制作 B 模式汇报，附逐页讲稿，并提供可编辑 PPTX”。
-For example, ask “Use `$norman-paper2ppt` in Mode B, include slide-by-slide speaker notes, and provide an editable PPTX.”
-
-## 制作流程 / Production workflow
-
-第一步，技能通读论文 PDF，整理研究背景、技术路线、数据方法、结果、局限和结论。
-First, the skill reads the paper PDF and organizes the background, approach, data, methods, results, limitations, and conclusions.
-
-第二步，技能记录各结果对应的原始图表、页码、关键数字和统计说明。
-Second, the skill records the original figures, page locations, key numbers, and statistical details associated with each result.
-
-第三步，技能规划封面、背景与方法、核心结果，以及创新与启示四个部分。
-Third, the skill plans four parts: cover, background and methods, core results, and innovation and implications.
-
-第四步，技能逐页制作 16:9 幻灯片，将论文原始图表插入版面，并完成演示文稿组装。
-Fourth, the skill creates 16:9 slides, inserts original paper figures into the layout, and assembles the presentation.
-
-第五步，如选择讲稿，技能会为每页写入适合口头讲述的说明和过渡语。
-Fifth, if notes are selected, the skill adds spoken explanations and transitions for each slide.
-
-## 交付内容 / Deliverables
-
-| 交付物 / Deliverable | 中文说明 | English explanation |
-| --- | --- | --- |
-| 图片版 PPTX / Image-based PPTX | 每页包含一张完整的最终幻灯片图像。 | Each slide contains one complete final slide image. |
-| 可编辑版 PPTX / Editable PPTX | 标题、正文、结论和页码等为可编辑对象，论文图表为图片对象。 | Titles, body text, conclusions, and page numbers are editable objects, while paper figures remain image objects. |
-| 逐页讲稿 / Speaker notes | 提供逐页讲稿文件，并在适用的演示文稿中写入演讲者备注。 | Provides a slide-by-slide script and presenter notes where supported. |
-
-## 本地命令 / Local commands
-
-复制完整技能文件夹后，在 Windows PowerShell 中运行内置程序查看指南和资源。
-After copying the complete skill folder, use the bundled executable in Windows PowerShell to read its guide and resources.
-
-```powershell
-& "<skill-root>/norman-paper2ppt.exe" guide
-& "<skill-root>/norman-paper2ppt.exe" list
-& "<skill-root>/norman-paper2ppt.exe" read references/local-execution.md
+```text
+Use $norman-paper2ppt to turn this paper into a research presentation: [local PDF].
+Use $norman-paper2ppt for a 5-minute overview, with speaker notes and an editable PPTX: [PDF].
+Use $norman-paper2ppt for a 10-minute journal-club presentation, with speaker notes: [PDF].
+Use $norman-paper2ppt for a 15-minute deep reading, preserving the paper's original figures: [PDF].
 ```
 
-| 命令 / Command | 中文用途 | English use |
-| --- | --- | --- |
-| `prepare-image-batch` | 集中准备逐页图像提示词。 | Prepares slide image prompts together. |
-| `validate` | 检查内容记录与图片。 | Checks content records and images. |
-| `audit` | 检查 PPTX 文件结构。 | Inspects the PPTX file structure. |
-| `fig2ppt` | 为可编辑版本调用内置重建工具。 | Calls the bundled reconstruction tool for editable output. |
+`SKILL.md` instructions are English; presentations and speaker notes default to Simplified Chinese. Supporting references retain their Chinese guidance. The skill confirms mode, speaker notes, and editable output **one question at a time**, reusing choices already supplied. Once these choices are complete, it proceeds without additional style or outline approval.
 
-需要制作可编辑版本时，同一程序还提供 `fig2ppt` 子命令和对应的内置说明。
-For editable output, the same executable also provides the `fig2ppt` subcommand and its bundled instructions.
+## Modes and visible outputs
 
-```powershell
-& "<skill-root>/norman-paper2ppt.exe" read vendor/norman-fig2ppt/guide.md
-& "<skill-root>/norman-paper2ppt.exe" fig2ppt probe
+| Mode | Duration | Total slides | Approximate narration, when selected |
+|---|---|---|---|
+| A · Brief overview (`brief`) | 5 minutes | 5–7 | 1,000 Chinese characters |
+| B · Standard reading (`standard`) | 10 minutes | 8–12 | 2,000 Chinese characters |
+| C · Deep reading (`deep`) | 15 minutes | 12–16 | 3,000 Chinese characters |
+
+The deck uses four parts: **one cover; one combined background / technical approach / data and methods slide; core-results slides; one combined innovation / conclusions / research implications slide**. Total counts include all four parts. Each combined slide contains all three topics. Speaker-note length allows about ±10%; character counts do not guarantee speaking duration.
+
+| Deliverable | Availability | Contents |
+|---|---|---|
+| `paper-image.pptx` | Always | One embedded complete image per slide, in 16:9 format |
+| Final slide images / ZIP | Always | Reviewed slide images in presentation order |
+| `speaker-notes.txt` | When selected | Slide-by-slide narration, also written into presenter notes where supported |
+| `paper-editable.pptx` | When selected | Native editable external text; ordinary images for scientific visuals |
+
+**Original figures remain the main evidence:** inventory main-text Figures and panels before planning results. Shorter decks prefer two related Figures per slide when readable; longer decks prefer one enlarged Figure per slide. Record omissions instead of claiming unsupported complete coverage. Insert originals directly from PDF extraction or high-resolution crops; do not ask AI to redraw curves, labels, or statistics. No new AI scientific illustrations, photographs, 3D scenes, or decorative icons are added. Simple paper-grounded flowcharts may support the narrative.
+
+The cover places the paper title and bibliographic details on the left and the **real first PDF page** on the right. Designed text boxes, consistent hierarchy, readable original figures, and clear conclusion bands form full compositions. Editable output preserves text-box fills and padding; scientific figures and other complex visuals remain images.
+
+---
+
+# 中文说明
+
+`norman-paper2ppt` 由 **N同学**制作和维护。小红书：**N同学**；抖音 / B站：**耐心的N同学**。
+
+将学术论文 PDF 精读为中文科研汇报：阅读全文、梳理证据主线，以论文原图为主要视觉，集中准备整套提示词，再制作与组装 16:9 PPTX。始终交付图片版，可选逐页讲稿和文字、图片可编辑版。完整流程与 Fig2PPT 引擎均已封装到五平台可执行程序中。
+
+## 放置与调用
+
+把整个 `norman-paper2ppt` 文件夹放入支持 `SKILL.md` 的宿主技能目录，保留内部结构；也可以在对话中明确指定文件夹路径。本包不会自动安装到全局目录。
+
+```text
+请用 $norman-paper2ppt 将这篇论文制作成科研汇报：[本地 PDF]。
+请用 $norman-paper2ppt 做 5 分钟精要速览，需要讲稿和可编辑 PPT：[PDF]。
+请用 $norman-paper2ppt 做 10 分钟组会标准解读，附逐页讲稿：[PDF]。
+请用 $norman-paper2ppt 做 15 分钟深度研读，保留论文正文原图：[PDF]。
 ```
 
-把 `<skill-root>` 换成技能文件夹路径，并用具体子命令的 `--help` 查看参数。
-Replace `<skill-root>` with the skill folder path, and use each subcommand’s `--help` option for its arguments.
+`SKILL.md` 指令为英文，PPT 和讲稿默认简体中文，配套参考规范保留中文。技能依次确认汇报模式、是否讲稿、是否可编辑版，**每次只问一个问题**；已经说明的选择不会重复询问。三个选择完成即继续制作，不额外要求风格或提纲批准。
 
-macOS 和 Linux 用户选择与系统及处理器匹配的同名可执行文件。
-On macOS and Linux, choose the executable that matches the operating system and processor.
+## 模式与交付内容
 
-### 作者与许可
+| 模式 | 时长 | 总页数 | 选择讲稿时的目标字数 |
+|---|---|---|---|
+| A · 精要速览（`brief`） | 5 分钟 | 5–7 页 | 约 1,000 个汉字 |
+| B · 标准解读（`standard`） | 10 分钟 | 8–12 页 | 约 2,000 个汉字 |
+| C · 深度研读（`deep`） | 15 分钟 | 12–16 页 | 约 3,000 个汉字 |
 
-作者：小红书 **N同学**；抖音 / B站 **耐心的N同学**。
+PPT 固定采用四部分结构：**封面 1 页；研究背景、技术路线与数据方法合并 1 页；核心结果多页；研究创新、研究结论与研究启示合并为最后 1 页**。总页数包含上述所有部分，两张合并页均完整覆盖三个主题。讲稿字数允许约 ±10%，实际演讲时长仍受语速影响。
+
+| 交付文件 | 提供条件 | 内容 |
+|---|---|---|
+| `paper-image.pptx` | 始终提供 | 每页一张嵌入式完整图片，16:9 |
+| 最终逐页图片／ZIP | 始终提供 | 按演示顺序保存、已审核的页面图片 |
+| `speaker-notes.txt` | 选择讲稿时 | 逐页讲述正文，并尽量写入对应演讲者备注 |
+| `paper-editable.pptx` | 选择可编辑版时 | 外部文字为原生文本框，科研图等视觉保留普通图片 |
+
+**以论文正文原图承载证据**：先清点正文 Figure 和面板，再规划结果页。页少时优先两张相关 Figure 一页，页多时优先一张 Figure 一页并放大；可读性优先，未展示内容记录原因。原图来自 PDF 提取或高清渲染裁切，直接保真置入，不让 AI 重画曲线、猜标签或更改统计。禁止新增 AI 科学插画、照片、3D 场景和装饰图标，可用基于论文的简洁流程图辅助解释。
+
+封面左侧为题名与题录，右侧为论文 **真实 PDF 第 1 页**。通过充分放大的原图、统一文字层级、浅色实底解释框和结论带形成丰满页面。可编辑版保留文本框底色和内边距；科研图及复杂视觉仍为普通图片。
