@@ -76,9 +76,9 @@ The AI assistant can follow the repository instructions to download, install, an
 
 **📦 手动安装 | Manual Installation**
 
-完整的本地技能位于 [norman-fig2ppt/](norman-fig2ppt/)、[norman-paper-reading/](norman-paper-reading/)、[norman-paper2ppt/](norman-paper2ppt/) 和 [norman-humanize/](norman-humanize/) 以及 [norman-research-idea/](norman-research-idea/)。各技能的系统支持与使用要求见对应目录的中英双语说明；`norman-humanize` 包含 Windows x64、Mac Apple Silicon、Mac Intel、Linux x64 和 Linux ARM64 五种运行程序。
+完整的本地技能位于 [norman-fig2ppt/](norman-fig2ppt/)、[norman-paper-reading/](norman-paper-reading/)、[norman-research-idea/](norman-research-idea/)、[norman-paper2ppt/](norman-paper2ppt/) 和 [norman-humanize/](norman-humanize/)。各技能的系统支持与使用要求见对应目录的中英双语说明。
 
-The complete local skills are available in [norman-fig2ppt/](norman-fig2ppt/), [norman-paper-reading/](norman-paper-reading/), [norman-paper2ppt/](norman-paper2ppt/), and [norman-humanize/](norman-humanize/) plus [norman-research-idea/](norman-research-idea/). See each bilingual README for supported systems and requirements. `norman-humanize` includes executables for Windows x64, Mac Apple Silicon, Mac Intel, Linux x64, and Linux ARM64.
+The complete local skills are available in [norman-fig2ppt/](norman-fig2ppt/), [norman-paper-reading/](norman-paper-reading/), [norman-research-idea/](norman-research-idea/), [norman-paper2ppt/](norman-paper2ppt/), and [norman-humanize/](norman-humanize/). See each bilingual README for supported systems and requirements.
 
 通过仓库的 **Code → Download ZIP** 下载并解压后，将需要的完整技能文件夹复制到支持 `SKILL.md` 的 AI 助手技能目录。不要只下载 `SKILL.md` 或单个可执行文件。
 
@@ -172,7 +172,9 @@ Use $norman-paper-reading to critically review this paper, analyze original figu
 
 Python and PDF dependencies are bundled. No additional installation or first-run downloads are required. Scanned PDFs are flagged; OCR is not included.
 
-完整说明：[中英使用说明](norman-paper-reading/README.md)。打包与验证：[PACKAGE-INFO.json](norman-paper-reading/PACKAGE-INFO.json)、[VALIDATION.json](norman-paper-reading/VALIDATION.json)。
+完整说明：[中英使用说明](norman-paper-reading/README.md)。
+
+Full guide: [Bilingual README](norman-paper-reading/README.md).
 
 ---
 
@@ -199,8 +201,8 @@ Use $norman-research-idea to map prior work, evaluate research ideas, and design
 
 Full guide: [Bilingual README](norman-research-idea/README.md).
 
-
 ---
+
 ## 📑 学术论文转研究汇报 PPT | Academic Paper to Research Presentation
 
 [norman-paper2ppt](norman-paper2ppt/) 将学术论文 PDF 整理为中文研究汇报 PPT，围绕科学问题、研究方法与核心结果组织叙事，优先使用论文原图。支持 5 / 10 / 15 分钟三种汇报模式，默认输出 16:9 图片版 PPT，可选逐页讲稿和文字、图片可编辑版本。
@@ -211,9 +213,9 @@ Turn academic paper PDFs into Chinese research presentations built around the sc
 请用 $norman-paper2ppt 将这篇论文制作成 10 分钟中文文献汇报，附逐页讲稿和可编辑 PPT：[PDF]。
 ```
 
-完整说明：[中英使用说明](norman-paper2ppt/README.md)。已内置 Windows / Mac 本地运行组件，制作幻灯片还需当前 AI 环境提供图像生成工具及可用的 PPT 生成与渲染工具。
+完整说明：[中英使用说明](norman-paper2ppt/README.md)。已内置 Windows / Mac / Linux 本地运行组件，制作幻灯片还需当前 AI 环境提供图像生成工具及可用的 PPT 生成与渲染工具。
 
-Full guide: [Bilingual README](norman-paper2ppt/README.md). Windows / Mac runtimes are bundled; slide production also requires image-generation tools and an available presentation backend and renderer in the host AI environment.
+Full guide: [Bilingual README](norman-paper2ppt/README.md). Windows / Mac / Linux runtimes are bundled; slide production also requires image-generation tools and an available presentation backend and renderer in the host AI environment.
 
 ---
 ## ✍️ 中英文写作去 AI 痕迹 | Chinese & English Writing Revision

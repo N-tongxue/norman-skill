@@ -30,4 +30,4 @@ chmod u+x "<skill-root>/norman-paper2ppt-macos-arm64"
 "<skill-root>/norman-paper2ppt-macos-arm64" guide
 ```
 
-The host AI client interprets the paper and generates layouts with its image tool. No AI model is bundled. Optional editable output uses `fig2ppt <command>` in the same executable and Quick text/images only; load `read vendor/norman-fig2ppt/guide.md` when selected. Windows assembly/rendering requires local PowerPoint; Mac/Linux require a verified presentation backend and renderer. No separate Python installation or first-run download is needed. Mac/Linux builds have static checks pending native execution; Mac files are not Developer ID signed or notarized. Linux musl/Alpine is outside this release.
+The host AI client interprets the paper and generates layouts with its image tool. No AI model is bundled. Optional editable output uses `fig2ppt <command>` in the same executable and Quick text/images only; load `read vendor/norman-fig2ppt/guide.md` when selected. Windows assembly/rendering requires local PowerPoint; Mac/Linux require a verified presentation backend and renderer. No separate Python installation or first-run download is needed.
