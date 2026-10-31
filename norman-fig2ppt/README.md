@@ -1,8 +1,11 @@
 # Norman Fig2PPT 使用说明 / User Guide
 
-Version: **1.4.2**
+版本 / Version: **1.3.1**
 
-English SKILL.md instructions and chat attribution; Quick and Advanced reconstruction behavior is preserved.
+## 模型设置 / Model setting
+
+使用本技能时，请关闭模型的“快速模式（Fast mode）”。此设置与技能自身的 Quick / Advanced 重建模式分别选择。
+Keep the model's Fast mode disabled when using this skill. The skill's Quick / Advanced reconstruction modes remain separate choices.
 
 ## 技能用途 / Purpose
 

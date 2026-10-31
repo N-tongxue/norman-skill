@@ -50,7 +50,7 @@ Currently available Skills:
 
 | Skill | 功能 / Purpose | 使用说明 / Guide |
 |---|---|---|
-| [norman-fig2ppt](norman-fig2ppt/) · v1.4.2 | 论文图片转为可编辑 PowerPoint 图形 / Convert paper figures into editable PowerPoint shapes | [中英说明 / Bilingual guide](norman-fig2ppt/README.md) |
+| [norman-fig2ppt](norman-fig2ppt/) · v1.3.1 | 论文图片转为可编辑 PowerPoint 图形 / Convert paper figures into editable PowerPoint shapes | [中英说明 / Bilingual guide](norman-fig2ppt/README.md) |
 | [norman-paper-reading](norman-paper-reading/) · v1.4.0 | 研究过程重建、批判性证据审查、逐图精读与科研创新规划 / Research reconstruction, critical evidence evaluation, figure-by-figure analysis, and research innovation planning | [中英说明 / Bilingual guide](norman-paper-reading/README.md) |
 | [norman-research-idea](norman-research-idea/) · v2.0.0 | 文献核查、创新点评估与可执行研究方案设计 / Literature review, novelty assessment, and actionable research proposal design | [中英说明 / Bilingual guide](norman-research-idea/README.md) |
 | [norman-paper2ppt](norman-paper2ppt/) · v1.1.0 | 学术论文转中文研究汇报 PPT，含原文图、可选讲稿及可编辑版本 / Turn academic papers into Chinese research presentations with original figures, optional speaker notes and editable output | [中英说明 / Bilingual guide](norman-paper2ppt/README.md) |
@@ -85,6 +85,10 @@ The complete local skills are available in [norman-fig2ppt/](norman-fig2ppt/), [
 Download this repository using **Code → Download ZIP**, extract it, and copy the complete skill folder you need into the skills directory of an AI assistant supporting `SKILL.md`. Keep all bundled files together.
 
 ## 🎨 论文图片矢量化 | Paper Figure Vectorization
+
+**模型设置提示：** 使用本技能时，请关闭模型的“快速模式（Fast mode）”。此设置与技能自身的 Quick / Advanced 重建模式分别选择。
+
+**Model setting:** Keep the model's Fast mode disabled when using this skill. The skill's Quick / Advanced reconstruction modes remain separate choices.
 
 将论文中的复杂图片转换为：
 
