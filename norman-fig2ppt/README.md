@@ -1,5 +1,9 @@
 # Norman Fig2PPT 使用说明 / User Guide
 
+Version: **1.4.2**
+
+English SKILL.md instructions and chat attribution; Quick and Advanced reconstruction behavior is preserved.
+
 ## 技能用途 / Purpose
 
 Norman Fig2PPT 将科研图、机制图、流程图和截图重建为可编辑的 PowerPoint 对象。
