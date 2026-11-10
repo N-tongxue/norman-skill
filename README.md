@@ -55,6 +55,7 @@ Currently available Skills:
 | [norman-research-idea](norman-research-idea/) · v2.0.0 | 文献核查、创新点评估与可执行研究方案设计 / Literature review, novelty assessment, and actionable research proposal design | [中英说明 / Bilingual guide](norman-research-idea/README.md) |
 | [norman-paper2ppt](norman-paper2ppt/) · v1.1.0 | 学术论文转中文研究汇报 PPT，含原文图、可选讲稿及可编辑版本 / Turn academic papers into Chinese research presentations with original figures, optional speaker notes and editable output | [中英说明 / Bilingual guide](norman-paper2ppt/README.md) |
 | [norman-humanize](norman-humanize/) · v1.3.2 | 中英文写作去 AI 痕迹，保留原意与文风，支持可见增删和 Word 真实修订 / Edit Chinese and English prose while preserving meaning and voice, with visible edits and real Word tracked changes | [中英说明 / Bilingual guide](norman-humanize/README.md) |
+| [norman-manuscript-audit](norman-manuscript-audit/) | 论文投稿前校对、图文排版及参考文献检查 / Pre-submission proofreading, layout review, and reference checks | [中英说明 / Bilingual guide](norman-manuscript-audit/README.md) |
 
 ### 下载与安装 | Download and Install
 
@@ -76,9 +77,9 @@ The AI assistant can follow the repository instructions to download, install, an
 
 **📦 手动安装 | Manual Installation**
 
-完整的本地技能位于 [norman-fig2ppt/](norman-fig2ppt/)、[norman-paper-reading/](norman-paper-reading/)、[norman-research-idea/](norman-research-idea/)、[norman-paper2ppt/](norman-paper2ppt/) 和 [norman-humanize/](norman-humanize/)。各技能的系统支持与使用要求见对应目录的中英双语说明。
+完整的本地技能位于 [norman-fig2ppt/](norman-fig2ppt/)、[norman-paper-reading/](norman-paper-reading/)、[norman-research-idea/](norman-research-idea/)、[norman-paper2ppt/](norman-paper2ppt/)、[norman-humanize/](norman-humanize/) 和 [norman-manuscript-audit/](norman-manuscript-audit/)。各技能的系统支持与使用要求见对应目录的中英双语说明。
 
-The complete local skills are available in [norman-fig2ppt/](norman-fig2ppt/), [norman-paper-reading/](norman-paper-reading/), [norman-research-idea/](norman-research-idea/), [norman-paper2ppt/](norman-paper2ppt/), and [norman-humanize/](norman-humanize/). See each bilingual README for supported systems and requirements.
+The complete local skills are available in [norman-fig2ppt/](norman-fig2ppt/), [norman-paper-reading/](norman-paper-reading/), [norman-research-idea/](norman-research-idea/), [norman-paper2ppt/](norman-paper2ppt/), [norman-humanize/](norman-humanize/), and [norman-manuscript-audit/](norman-manuscript-audit/). See each bilingual README for supported systems and requirements.
 
 通过仓库的 **Code → Download ZIP** 下载并解压后，将需要的完整技能文件夹复制到支持 `SKILL.md` 的 AI 助手技能目录。不要只下载 `SKILL.md` 或单个可执行文件。
 
