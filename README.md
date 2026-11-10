@@ -241,6 +241,24 @@ Windows, Mac, and Linux executables are bundled, with no separate Python install
 
 ---
 
+## 🔎 论文投稿前质检 | Pre-submission Manuscript Audit
+
+[norman-manuscript-audit](norman-manuscript-audit/) 用于论文投稿前校对和质检。简易检查覆盖排印错误、页面排版、图表可读性、编号、交叉引用和参考文献格式。深度检查进一步审查创新性、方法、数据、统计、结果和证据，获得授权后可逐条核验参考文献真实性。报告列出已核实的问题、所在位置和修改建议。
+
+[norman-manuscript-audit](norman-manuscript-audit/) proofreads and reviews manuscripts before submission. Simple review checks typography, page layout, figure and table readability, numbering, cross-references, and reference formatting. Deep review also examines novelty, methods, data, statistics, results, and evidence, with individual reference verification when authorized. The report lists verified issues, their locations, and proposed fixes.
+
+```text
+请用 $norman-manuscript-audit 对附件做简易检查，重点检查图表、编号和参考文献格式，直接开始。
+
+请用 $norman-manuscript-audit 对附件做深度检查，重点审查方法、统计和结论的证据。
+```
+
+内置 Windows x64、macOS 和 Linux 的本地工具，可提取稿件内容、筛查一致性和参考文献问题，并校验审计报告。[中英使用说明](norman-manuscript-audit/README.md)。
+
+The bundled local tools for Windows x64, macOS, and Linux extract manuscript content, screen for consistency and reference issues, and validate audit reports. [Bilingual README](norman-manuscript-audit/README.md).
+
+---
+
 ## 🚀 为什么做 Norman-Skill？ | Why Norman-Skill?
 
 很多科研工作其实并不难，但非常耗时间。  
