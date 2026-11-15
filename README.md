@@ -8,9 +8,9 @@ Hi, I'm **Norman (N同学)**, a PhD student at Tsinghua University.
 
 During my research, I often encounter time-consuming tasks such as editing figures from papers, preparing presentation slides, and repeating similar research workflows. To make these tasks easier, I started organizing the methods and tools I use in my daily research into **Norman-Skill**.
 
-这里会持续更新科研制图、论文图片处理、PPT、AI 辅助科研等实用 Skill，希望让一些原本需要反复手动完成的工作变得更简单、更高效。
+这里会持续更新科研制图、论文图片处理、PPT、论文写作与修订、AI 辅助科研等实用 Skill，希望让一些原本需要反复手动完成的工作变得更简单、更高效。
 
-This repository will continuously provide practical Skills for scientific visualization, figure processing, PowerPoint creation, AI-assisted research, and other research workflows — making repetitive tasks simpler and more efficient.
+This repository will continuously provide practical Skills for scientific visualization, figure processing, PowerPoint creation, academic writing and revision, AI-assisted research, and other research workflows — making repetitive tasks simpler and more efficient.
 
 如果这些 Skill 对你有帮助，欢迎 ⭐ Star 本项目。  
 If you find these Skills useful, feel free to ⭐ **Star this repository**.
@@ -56,6 +56,7 @@ Currently available Skills:
 | [norman-paper2ppt](norman-paper2ppt/) · v1.1.0 | 学术论文转中文研究汇报 PPT，含原文图、可选讲稿及可编辑版本 / Turn academic papers into Chinese research presentations with original figures, optional speaker notes and editable output | [中英说明 / Bilingual guide](norman-paper2ppt/README.md) |
 | [norman-humanize](norman-humanize/) · v1.3.2 | 中英文写作去 AI 痕迹，保留原意与文风，支持可见增删和 Word 真实修订 / Edit Chinese and English prose while preserving meaning and voice, with visible edits and real Word tracked changes | [中英说明 / Bilingual guide](norman-humanize/README.md) |
 | [norman-manuscript-audit](norman-manuscript-audit/) | 论文投稿前校对、图文排版及参考文献检查 / Pre-submission proofreading, layout review, and reference checks | [中英说明 / Bilingual guide](norman-manuscript-audit/README.md) |
+| [norman-anti-defensive](norman-anti-defensive/) · v1.0.0 | 精简论文中过度防御性的措辞，保留证据强度、适用范围和作者文风 / Remove unnecessary defensive phrasing from manuscripts while preserving the strength and scope of claims and the author's voice | [中英说明 / Bilingual guide](norman-anti-defensive/README.md) |
 
 ### 下载与安装 | Download and Install
 
@@ -77,9 +78,9 @@ The AI assistant can follow the repository instructions to download, install, an
 
 **📦 手动安装 | Manual Installation**
 
-完整的本地技能位于 [norman-fig2ppt/](norman-fig2ppt/)、[norman-paper-reading/](norman-paper-reading/)、[norman-research-idea/](norman-research-idea/)、[norman-paper2ppt/](norman-paper2ppt/)、[norman-humanize/](norman-humanize/) 和 [norman-manuscript-audit/](norman-manuscript-audit/)。各技能的系统支持与使用要求见对应目录的中英双语说明。
+完整的本地技能位于 [norman-fig2ppt/](norman-fig2ppt/)、[norman-paper-reading/](norman-paper-reading/)、[norman-research-idea/](norman-research-idea/)、[norman-paper2ppt/](norman-paper2ppt/)、[norman-humanize/](norman-humanize/)、[norman-manuscript-audit/](norman-manuscript-audit/) 和 [norman-anti-defensive/](norman-anti-defensive/)。各技能的系统支持与使用要求见对应目录的中英双语说明。
 
-The complete local skills are available in [norman-fig2ppt/](norman-fig2ppt/), [norman-paper-reading/](norman-paper-reading/), [norman-research-idea/](norman-research-idea/), [norman-paper2ppt/](norman-paper2ppt/), [norman-humanize/](norman-humanize/), and [norman-manuscript-audit/](norman-manuscript-audit/). See each bilingual README for supported systems and requirements.
+The complete local skills are available in [norman-fig2ppt/](norman-fig2ppt/), [norman-paper-reading/](norman-paper-reading/), [norman-research-idea/](norman-research-idea/), [norman-paper2ppt/](norman-paper2ppt/), [norman-humanize/](norman-humanize/), [norman-manuscript-audit/](norman-manuscript-audit/), and [norman-anti-defensive/](norman-anti-defensive/). See each bilingual README for supported systems and requirements.
 
 通过仓库的 **Code → Download ZIP** 下载并解压后，将需要的完整技能文件夹复制到支持 `SKILL.md` 的 AI 助手技能目录。不要只下载 `SKILL.md` 或单个可执行文件。
 
@@ -256,6 +257,22 @@ Windows, Mac, and Linux executables are bundled, with no separate Python install
 内置 Windows x64、macOS 和 Linux 的本地工具，可提取稿件内容、筛查一致性和参考文献问题，并校验审计报告。[中英使用说明](norman-manuscript-audit/README.md)。
 
 The bundled local tools for Windows x64, macOS, and Linux extract manuscript content, screen for consistency and reference issues, and validate audit reports. [Bilingual README](norman-manuscript-audit/README.md).
+
+---
+
+## 📝 学术论文措辞精简 | Academic Manuscript Editing
+
+[norman-anti-defensive v1.0.0](norman-anti-defensive/) 精简中英文论文中多余的防御性表达，如重复的保留措辞，保留数据、科学不确定性、结论的适用范围和作者文风。支持修改单句、段落和完整 Word 稿件，可按需交付带 Word 原生修订的副本。
+
+[norman-anti-defensive v1.0.0](norman-anti-defensive/) removes unnecessary defensive phrasing, such as redundant hedges, from Chinese and English academic manuscripts. It preserves data, scientific uncertainty, the scope of claims, and the author's voice. It supports individual sentences, passages, and full Word manuscripts, with native Word Track Changes available on request.
+
+```text
+请用 $norman-anti-defensive 修订这段论文，保留证据强度和适用条件。
+```
+
+内置 Windows、macOS 和 Linux 运行程序。[中英使用说明](norman-anti-defensive/README.md)。
+
+Executables are bundled for Windows, macOS, and Linux. [Bilingual README](norman-anti-defensive/README.md).
 
 ---
 
